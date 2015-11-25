@@ -21,6 +21,13 @@ function routing($stateProvider, $urlRouterProvider) {
 			controller: 'profileCtrl'
 		})
 		
+		.state('update', {
+			url: '/profile/update',
+			templateUrl: './features/update/update.template.html',
+			controller: 'updateCtrl'
+		})
+		
+		
 		.state('matches', {
 			url: '/matches',
 			templateUrl: './features/matches/matches.template.html',
