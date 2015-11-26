@@ -24,8 +24,8 @@ module.exports = {
 	},
 	//-------------
 	
-	getUser: function(req, res, next){
-		
+	getUserByEmailAndPassword: function(req, res, next){
+		// console.log('this is reqbody for first func', req.body)
 		User.find()
 			.where('email').equals(req.body.email)
 			.where('password').equals(req.body.password)
@@ -34,6 +34,17 @@ module.exports = {
 				if (response) res.json(response);
 				else res.status(500).send(err);
 			})	
+	},
+	
+	getUserById: function(req, res, next){
+		
+		console.log('this is the req.body', req.body);
+		User.findById(req.params.id)
+			.exec()
+			.then(function(response, err){
+				if (response) res.json(response);
+				else res.status(500).send(err);
+			})
 	}
 	
 	

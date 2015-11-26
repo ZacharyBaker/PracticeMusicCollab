@@ -18,7 +18,13 @@ function routing($stateProvider, $urlRouterProvider) {
 		.state('profile', {
 			url: '/profile/:_id',
 			templateUrl: './features/profile/profile.template.html',
-			controller: 'profileCtrl'
+			controller: 'profileCtrl',
+			resolve: {
+				profileInfo: function($stateParams, profileService){
+					console.log('this is _id', $stateParams._id);
+					return profileService.getProfileInfo($stateParams._id);
+				}
+			}
 		})
 		
 		.state('update', {

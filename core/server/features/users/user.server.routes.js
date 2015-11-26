@@ -8,5 +8,8 @@ module.exports = function(app){
 	
 	
 	app.route('/api/user')
-		.post(Ctrl.getUser);
+		.post(Ctrl.getUserByEmailAndPassword);
+		
+	app.route('/api/profile/:id')
+		.get(Ctrl.getUserById);
 }
