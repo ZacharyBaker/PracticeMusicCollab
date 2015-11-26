@@ -1,34 +1,38 @@
-
 <div class="loginContainer">
-	
-	
-	
-<h3>Login</h3>	
-	
-<input type="text" placeholder="email.." ng-model="oldUser.email"><br>
-	
-<input type="password" placeholder="password.." ng-model="oldUser.password"><br>
-<button ng-click="tryToLogin(oldUser)">Login</button>
 
+
+
+	<h3>Login</h3>
+	<form ng-submit="tryToLogin(oldUser)">
+		<input type="text" placeholder="email.." ng-model="oldUser.email">
+		<br>
+
+		<input type="password" placeholder="password.." ng-model="oldUser.password">
+		<br>
+		<button>Login</button>
+	</form>
 	<h1>{{username}} biotch</h1>
 
 
-	
+
 	<h3>Create New User</h3>
-	
-<input type="text" placeholder="email.." ng-model="newUser.email"><br>
+	<form ng-submit="addNewUser(newUser)">
+		<input type="text" placeholder="email.." ng-model="newUser.email">
+		<br>
 
-<input type="text" placeholder="username.." ng-model="newUser.username"><br>
+		<input type="text" placeholder="username.." ng-model="newUser.username">
+		<br>
 
-<input type="password" placeholder="password.." ng-model="newUser.password"><br>
+		<input type="password" placeholder="password.." ng-model="newUser.password">
+		<br>
 
-<button ng-click="addNewUser(newUser)">Submit</button>
-	
-	
-	
-	
+		<button>Submit</button>
 
-	
-	
-	
+	</form>
+
+
+
+
+
+
 </div>
