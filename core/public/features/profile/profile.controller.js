@@ -8,7 +8,6 @@ function profileCtrl($scope, profileInfo){
 	
 	console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
-	
-	
+		
 	
 }

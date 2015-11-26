@@ -9,7 +9,6 @@ function loginCtrl($scope, loginService, $state) {
 	//if the user already exists, and deny them if it does
 	$scope.addNewUser = function (newUser) {
 		loginService.addNewUser(newUser).then(function (data) {
-			alert('great job pal');
 			$scope.newUser.username = '';
 			$scope.newUser.email = '';
 			$scope.newUser.password = '';
