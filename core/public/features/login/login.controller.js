@@ -3,7 +3,7 @@ var musicApp = angular.module('musicApp');
 musicApp.controller('loginCtrl', ['$scope', 'loginService', '$state', loginCtrl]);
 
 function loginCtrl($scope, loginService, $state) {
-	
+
 
 	//need to make this function (or the function in the service) check to see 
 	//if the user already exists, and deny them if it does
@@ -22,6 +22,8 @@ function loginCtrl($scope, loginService, $state) {
 			console.log('This is the data returned to the controller', data);
 			$scope.oldUser.email = '';
 			$scope.oldUser.password = '';
+			
+			$scope.username = data[0].username;
 		}
 		// , function(error){
 		// 	console.log(error);
