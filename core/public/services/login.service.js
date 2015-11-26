@@ -20,11 +20,10 @@ function loginService($q, $http){
 	
 	this.findUser = function(oldUser){
 		
-		return $http.get('/api/user', oldUser)
+		return $http.post('/api/user', oldUser)
 			 .then(function (response) {
                 console.log(response);
-				console.log('im a happy baby');//ask someone why this is not 
-                return response.data;//logging out, or where it is loggin out
+                return response.data;
             }, function (error) {
 				
                 console.log(error);

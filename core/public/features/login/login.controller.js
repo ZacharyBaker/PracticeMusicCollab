@@ -19,14 +19,16 @@ function loginCtrl($scope, loginService, $state) {
 	$scope.tryToLogin = function(oldUser){
 		
 		loginService.findUser(oldUser).then(function(data){
-			console.log(data);
-			
-			//return this so next part doesn't run
-		}, function(err){
-			console.log(err);
-			alert('user doesnt exist clownboy');
-			return err;
-		})
+			console.log('This is the data returned to the controller', data);
+			$scope.oldUser.email = '';
+			$scope.oldUser.password = '';
+		}
+		// , function(error){
+		// 	console.log(error);
+		// 	alert('user doesnt exist clownboy');
+		// 	return error;
+		// }
+		)
 		
 	}
 

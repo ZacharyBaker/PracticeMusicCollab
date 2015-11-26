@@ -31,8 +31,8 @@ module.exports = {
 			.where('password').equals(req.body.password)
 			.exec()
 			.then(function(response, err){
-				if (err) res.status(500).send(err);
-				else res.json(response);
+				if (response) res.json(response);
+				else res.status(500).send(err);
 			})	
 	}
 	
