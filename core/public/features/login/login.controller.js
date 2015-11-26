@@ -16,12 +16,20 @@ function loginCtrl($scope, loginService, $state) {
 		})
 	}
 
+	$scope.goToProfile = function(id){
+		$state.go('profile', {
+			_id: id
+		});
+	}
+
 	$scope.tryToLogin = function(oldUser){
 		
 		loginService.findUser(oldUser).then(function(data){
 			console.log('This is the data returned to the controller', data);
 			$scope.oldUser.email = '';
 			$scope.oldUser.password = '';
+			
+			$scope.goToProfile(data[0]._id)
 			
 			$scope.username = data[0].username;
 		}
@@ -35,11 +43,7 @@ function loginCtrl($scope, loginService, $state) {
 	}
 
 
-	$scope.goToProfile = function(id){
-		$state.go('profile', {
-			_id: id
-		});
-	}
+	
 
 
 }
