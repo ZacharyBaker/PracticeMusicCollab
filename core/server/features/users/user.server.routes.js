@@ -6,4 +6,7 @@ module.exports = function(app){
 		.post(Ctrl.postUser)
 		.get(Ctrl.getUsers);
 	
+	
+	app.route('/api/user')
+		.post(Ctrl.getUser);
 }

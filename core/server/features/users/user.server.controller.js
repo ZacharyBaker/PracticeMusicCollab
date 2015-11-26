@@ -21,6 +21,19 @@ module.exports = {
 			else res.json(response);
 		})
 		
+	},
+	//-------------
+	
+	getUser: function(req, res, next){
+		
+		User.find()
+			.where('email').equals(req.body.email)
+			.where('password').equals(req.body.password)
+			.exec()
+			.then(function(response, err){
+				if (err) res.status(500).send(err);
+				else res.json(response);
+			})	
 	}
 	
 	
