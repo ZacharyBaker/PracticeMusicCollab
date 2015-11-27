@@ -13,7 +13,7 @@ function routing($stateProvider, $urlRouterProvider) {
 			templateUrl: './features/login/login.template.html',
 			controller: 'loginCtrl'
 		})
-	// AM I GOING TO WANT NESTED ROUTES WITH ID'S???
+	// AM I GOING TO WANT NESTED ROUTES WITH ID'S??? yes you are
 		
 		.state('profile', {
 			url: '/profile/:_id',
@@ -28,7 +28,7 @@ function routing($stateProvider, $urlRouterProvider) {
 		})
 		
 		.state('update', {
-			url: '/profile/update',
+			url: '/profile/:id/update',
 			templateUrl: './features/update/update.template.html',
 			controller: 'updateCtrl'
 		})
