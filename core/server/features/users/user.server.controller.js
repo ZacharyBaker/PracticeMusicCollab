@@ -45,6 +45,15 @@ module.exports = {
 				if (response) res.json(response);
 				else res.status(500).send(err);
 			})
+	},
+	
+	updateUserById: function(req, res, next){
+		
+		User.findByIdAndUpdate(req.params.id, req.body, function(err, result){
+			if (err) res.status(500).send(err);
+			else res.json(result);
+		})
+			
 	}
 	
 	
