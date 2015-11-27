@@ -8,6 +8,8 @@ function loginCtrl($scope, loginService, $state) {
 	//need to make this function (or the function in the service) check to see 
 	//if the user already exists, and deny them if it does
 	$scope.addNewUser = function (newUser) {
+		//use the findUser function from login service, if
+		// user doesn't exist, then you can add
 		loginService.addNewUser(newUser).then(function (data) {
 			$scope.newUser.username = '';
 			$scope.newUser.email = '';
