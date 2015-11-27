@@ -11,6 +11,7 @@ function profileCtrl($scope, profileInfo, $state){
 	
 	
 	$scope.goToUpdatePage = function(id){
+		console.log('profile.controller, profileInfo._id',profileInfo._id);
 		$state.go('update', {
 			_id: id
 		});

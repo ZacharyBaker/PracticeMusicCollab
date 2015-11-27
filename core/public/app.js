@@ -21,16 +21,22 @@ function routing($stateProvider, $urlRouterProvider) {
 			controller: 'profileCtrl',
 			resolve: {
 				profileInfo: function($stateParams, profileService){
-					console.log('this is _id', $stateParams._id);
+					console.log('this is $stateParams._id', $stateParams._id);
 					return profileService.getProfileInfo($stateParams._id);
 				}
 			}
 		})
 		
 		.state('update', {
-			url: '/profile/:id/update',
+			url: '/profile/:_id/update',
 			templateUrl: './features/update/update.template.html',
-			controller: 'updateCtrl'
+			controller: 'updateCtrl',
+			resolve: {
+				profileInfo: function($stateParams, profileService){
+					console.log('this is _id', $stateParams._id);
+					return profileService.getProfileInfo($stateParams._id);
+				}
+			}
 		})
 		
 		
