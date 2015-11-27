@@ -1,23 +1,23 @@
-This is the update page breh
-
-here is our test: <h3>{{test}}</h3>
-
-
-testing profile info: {{profileInfo}}
+This is the update page breh here is our test:
+<h3>{{test}}</h3> testing profile info: {{profileInfo}}
 
 <br>
+<form ng-submit="updateUser(userWithUpdates)">
+	Username:
+	<input type="text" ng-model="userWithUpdates.username">
+	<br> Email:
+	<input type="text" ng-model="userWithUpdates.email">
+	<br> Password:
+	<input type="text" ng-model="userWithUpdates.password">
+	<br> Genres:
+	<input type="text" ng-model="userWithUpdates.genre">
+	<br> Instruments:
+	<input type="text" ng-model="userWithUpdates.instruments">
+	<br> SoundCloud:
+	<input type="text" ng-model="userWithUpdates.soundcloud">
 
-Username: <input type="text">
-<br>
-Email:<input type="text">
-<br>
-Password:<input type="text">
-<br>
-Genres:<input type="text">
-<br>
-Instruments:<input type="text">
-<br>
-SoundCloud:<input type="text">
 
+	<button>Submit Changes</button>
+</form>
 
-<button>Submit Changes</button>
+{{profileInfo._id}}

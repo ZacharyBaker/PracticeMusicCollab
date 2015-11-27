@@ -16,4 +16,17 @@ function profileService($q, $http){
 			})
 	}
 	
+	
+	this.updateUser = function(userWithUpdates){
+		
+		return $http.put('/api/update/' + userWithUpdates._id, userWithUpdates)
+			.then(function(response){
+				return response.data;
+			}, function(err){
+				console.log(err);
+				return err;
+			})
+		
+	}
+	
 }
