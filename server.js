@@ -16,7 +16,7 @@ var app = express();
 
 app.listen(port, function(){
 	console.log('Listening on port : ' + port);
-})
+});
 
 
 mongoose.connect(mongoUri);
