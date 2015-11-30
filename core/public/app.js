@@ -41,7 +41,7 @@ function routing($stateProvider, $urlRouterProvider) {
 		
 		
 		.state('matches', {
-			url: '/matches',
+			url: '/matches/:_id',
 			templateUrl: './features/matches/matches.template.html',
 			controller: 'matchesCtrl'
 		})

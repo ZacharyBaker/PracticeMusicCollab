@@ -17,4 +17,10 @@ function profileCtrl($scope, profileInfo, $state){
 		});
 	}
 	
+	$scope.goToMatchesPage = function(id){
+		$state.go('matches', {
+			_id: id
+		})
+	}
+	
 }
