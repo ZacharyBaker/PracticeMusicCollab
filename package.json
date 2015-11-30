@@ -21,6 +21,7 @@
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",
     "express": "^4.13.3",
+    "materialize-css": "^0.97.3",
     "mongoose": "^4.2.7"
   }
 }
