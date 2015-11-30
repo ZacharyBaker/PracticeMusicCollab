@@ -6,20 +6,30 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
 	
 	username: {
-		type: String
+		type: String,
+		required: true
 	},
 	email: {
-		type: String
+		type: String,
+		required: true
 	},
 	password: {
-		type: String
+		type: String,
+		required: true
 	},
+	profPic: {
+		type: String
+	},	
 	genre: {
 		type: String//MAKE THIS ENUM LATER SO THEY CAN JUST CHOOSE FROM A LIST
 	},// THAT MIGHT MAKE IT EASIER FOR SOMEONE TO SORT THROUGH PEOPLE THEY DON'T WANT
 	instruments: [{
 		type: String
 	}],
+	bio: {
+		type: String,
+		maxlength: 200
+	},
 	soundcloud: {
 		type: String
 	},
