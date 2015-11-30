@@ -22,9 +22,10 @@ function matchesService($q, $http) {
 						console.log('innerfunction response.data', response.data);
 						var arrOfUsers = response.data;
 						if (userInfo.notInterested) {
+							
 							userInfo.notInterested.forEach(function (e) {
 								for (var i = 0; i < arrOfUsers.length; i++) {
-									if (e === arrOfUsers[i]) {
+									if (e === arrOfUsers[i]._id) {
 										arrOfUsers.splice(i, 1);
 									}
 								}
@@ -33,7 +34,7 @@ function matchesService($q, $http) {
 						if (userInfo.imInterested) {
 							userInfo.imInterested.forEach(function (e) {
 								for (var i = 0; i < arrOfUsers.length; i++) {
-									if (e === arrOfUsers[i]) {
+									if (e === arrOfUsers[i]._id) {
 										arrOfUsers.splice(i, 1);
 									}
 								}
@@ -42,7 +43,7 @@ function matchesService($q, $http) {
 						if (userInfo.interestedInMe) {
 							userInfo.interestedInMe.forEach(function (e) {
 								for (var i = 0; i < arrOfUsers.length; i++) {
-									if (e === arrOfUsers[i]) {
+									if (e === arrOfUsers[i]._id) {
 										orderedDeck.push(arrOfUsers[i]);
 										arrOfUsers.splice(i, 1);
 									}
