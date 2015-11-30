@@ -33,8 +33,17 @@ var UserSchema = new Schema({
 	soundcloud: {
 		type: String
 	},
-	requests: [{
-		type: Schema.Types.ObjectId, ref: 'Requests'// make sure and make this collection :)
+	notInterested: [{
+		type: String//this will be an id	
+	}],
+	imInterested: [{
+		type: String//also an id	
+	}],
+	interestedInMe: [{
+		type: String// also an id	
+	}],
+	collaborations: [{
+		type: Schema.Types.ObjectId, ref: 'Collaborations'// make sure and make this collection :)
 	}]
 })
 

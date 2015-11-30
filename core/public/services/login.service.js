@@ -9,7 +9,7 @@ function loginService($q, $http){
 		
 		return $http.post('/api/users', newUser)
 			.then(function(response){
-				console.log(response);
+				// console.log(response);
 				return "user added!"
 			}, function(err){
 				console.log(err);

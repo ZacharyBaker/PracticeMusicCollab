@@ -21,7 +21,7 @@ function routing($stateProvider, $urlRouterProvider) {
 			controller: 'profileCtrl',
 			resolve: {
 				profileInfo: function($stateParams, profileService){
-					console.log('this is $stateParams._id', $stateParams._id);
+					// console.log('this is $stateParams._id', $stateParams._id);
 					return profileService.getProfileInfo($stateParams._id);
 				}
 			}
@@ -33,7 +33,7 @@ function routing($stateProvider, $urlRouterProvider) {
 			controller: 'updateCtrl',
 			resolve: {
 				profileInfo: function($stateParams, profileService){
-					console.log('this is _id', $stateParams._id);
+					// console.log('this is _id', $stateParams._id);
 					return profileService.getProfileInfo($stateParams._id);
 				}
 			}
@@ -43,7 +43,14 @@ function routing($stateProvider, $urlRouterProvider) {
 		.state('matches', {
 			url: '/matches/:_id',
 			templateUrl: './features/matches/matches.template.html',
-			controller: 'matchesCtrl'
+			controller: 'matchesCtrl',
+			resolve: {
+				deckOfUsers: function($stateParams, matchesService){
+					console.log('this is _id', $stateParams._id);
+					return matchesService.getDeckOfUsers($stateParams._id);
+				}
+			}
+			
 		})
 		
 }

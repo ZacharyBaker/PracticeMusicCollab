@@ -13,7 +13,7 @@ function updateCtrl($scope, profileInfo, profileService){
 	$scope.updateUser = function(profileInfo){
 		$scope.profileInfo._id = profileInfo._id;
 		profileService.updateUser(profileInfo).then(function(data){
-			console.log(data);
+			// console.log(data);
 			// $scope.profileInfo = {};
 			
 		})

@@ -26,7 +26,7 @@ function loginCtrl($scope, loginService, $state) {
 	$scope.tryToLogin = function(oldUser){
 		
 		loginService.findUser(oldUser).then(function(data){
-			console.log('This is the data returned to the controller', data);
+			// console.log('This is the data returned to the controller', data);
 			$scope.oldUser.email = '';
 			$scope.oldUser.password = '';
 			
