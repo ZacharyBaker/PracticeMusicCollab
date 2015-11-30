@@ -1,24 +1,24 @@
 This is the update page breh here is our test:
-<h3>{{test}}</h3> testing profile info: {{profileInfo}}
+<h3>{{test}}</h3> testing profile info: //////////<br>{{profileInfo}}////////////
 
 <br>
-<form ng-submit="updateUser(userWithUpdates)">
+<form ng-submit="updateUser(profileInfo)">
 	Username:
-	<input type="text" ng-model="userWithUpdates.username">
+	<input type="text" ng-model="profileInfo.username">
 	<br> Email:
-	<input type="text" ng-model="userWithUpdates.email">
+	<input type="text" ng-model="profileInfo.email">
 	<br> Password:
-	<input type="text" ng-model="userWithUpdates.password">
+	<input type="text" ng-model="profileInfo.password">
 	<br> Profile Picture:
-	<input type="text" ng-model="userWithUpdates.profPic">
+	<input type="text" ng-model="profileInfo.profPic">
 	<br> Genres:
-	<input type="text" ng-model="userWithUpdates.genre">
+	<input type="text" ng-model="profileInfo.genre">
 	<br> Instruments:
-	<input type="text" ng-model="userWithUpdates.instruments">
+	<input type="text" ng-model="profileInfo.instruments">
 	<br> SoundCloud:
-	<input type="text" ng-model="userWithUpdates.soundcloud">
+	<input type="text" ng-model="profileInfo.soundcloud">
 	<br> Bio: <br>
-	<textarea name="" cols="30" rows="6" maxlength="200" ng-model="userWithUpdates.bio"></textarea>
+	<textarea name="" cols="30" rows="6" maxlength="200" ng-model="profileInfo.bio"></textarea>
 
 
 	<button>Submit Changes</button>

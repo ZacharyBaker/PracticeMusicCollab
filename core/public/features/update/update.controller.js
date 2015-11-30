@@ -10,11 +10,11 @@ function updateCtrl($scope, profileInfo, profileService){
 	
 	// $scope.userWithUpdates._id = profileInfo._id;
 	
-	$scope.updateUser = function(userWithUpdates){
-		$scope.userWithUpdates._id = profileInfo._id;
-		profileService.updateUser(userWithUpdates).then(function(data){
+	$scope.updateUser = function(profileInfo){
+		$scope.profileInfo._id = profileInfo._id;
+		profileService.updateUser(profileInfo).then(function(data){
 			console.log(data);
-			$scope.userWithUpdates = {};
+			// $scope.profileInfo = {};
 			
 		})
 	}
