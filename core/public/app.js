@@ -13,7 +13,7 @@ function routing($stateProvider, $urlRouterProvider) {
 			templateUrl: './features/login/login.template.html',
 			controller: 'loginCtrl'
 		})
-	// AM I GOING TO WANT NESTED ROUTES WITH ID'S??? yes you are
+
 		
 		.state('profile', {
 			url: '/profile/:_id',
@@ -23,6 +23,10 @@ function routing($stateProvider, $urlRouterProvider) {
 				profileInfo: function($stateParams, profileService){
 					// console.log('this is $stateParams._id', $stateParams._id);
 					return profileService.getProfileInfo($stateParams._id);
+				},
+				deckOfUsers: function($stateParams, matchesService){
+					console.log('this is _id', $stateParams._id);
+					return matchesService.getDeckOfUsers($stateParams._id);
 				}
 			}
 		})
@@ -41,7 +45,7 @@ function routing($stateProvider, $urlRouterProvider) {
 		
 		
 		.state('matches', {
-			url: '/matches/:_id',
+			url: '/matches/:_id/user/:matchID',
 			templateUrl: './features/matches/matches.template.html',
 			controller: 'matchesCtrl',
 			resolve: {

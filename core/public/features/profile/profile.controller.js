@@ -1,8 +1,8 @@
 var musicApp = angular.module('musicApp');
 
-musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', profileCtrl]);
+musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', profileCtrl]);
 
-function profileCtrl($scope, profileInfo, $state){
+function profileCtrl($scope, profileInfo, $state, deckOfUsers){
 	
 	$scope.test = 'this is the sauciest test around';
 	
@@ -17,10 +17,18 @@ function profileCtrl($scope, profileInfo, $state){
 		});
 	}
 	
+	
+	$scope.deckOfUsers = deckOfUsers;
+	
+	
+	
 	$scope.goToMatchesPage = function(id){
 		$state.go('matches', {
-			_id: id
+			_id: id,
+			matchID: $scope.deckOfUsers[0]._id
 		})
 	}
+	
+
 	
 }
