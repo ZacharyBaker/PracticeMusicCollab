@@ -22,7 +22,7 @@ function matchesService($q, $http) {
 						console.log('innerfunction response.data', response.data);
 						var arrOfUsers = response.data;
 						if (userInfo.notInterested) {
-							
+
 							userInfo.notInterested.forEach(function (e) {
 								for (var i = 0; i < arrOfUsers.length; i++) {
 									if (e === arrOfUsers[i]._id) {
@@ -58,19 +58,29 @@ function matchesService($q, $http) {
 							orderedDeck.push(e);
 						})
 						//get rid of own profile in deck
-						for (var i = 0; i < orderedDeck.length; i++){
-							if (userInfo._id === orderedDeck[i]._id){
+						for (var i = 0; i < orderedDeck.length; i++) {
+							if (userInfo._id === orderedDeck[i]._id) {
 								orderedDeck.splice(i, 1);
 							}
 						}
-						
-						
-						
-					console.log('orderedDeck', orderedDeck);
-					return orderedDeck;
+
+
+
+						console.log('orderedDeck', orderedDeck);
+						return orderedDeck;
 					})
 			})
 
+	}
+
+	this.getPotentialCollaboratorInfo = function(matchId){
+		return $http.get('/api/profile/' + matchId)
+			.then(function(response){
+				return response.data;
+			}, function (err){
+				console.log(err);
+				return err;
+			})
 	}
 
 }

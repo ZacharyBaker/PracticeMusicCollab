@@ -52,6 +52,10 @@ function routing($stateProvider, $urlRouterProvider) {
 				deckOfUsers: function($stateParams, matchesService){
 					console.log('this is _id', $stateParams._id);
 					return matchesService.getDeckOfUsers($stateParams._id);
+				},
+				potentialCollaborator: function($stateParams, matchesService){
+					console.log('this is matchID', $stateParams.matchID);
+					return matchesService.getPotentialCollaboratorInfo($stateParams.matchID);
 				}
 			}
 			
