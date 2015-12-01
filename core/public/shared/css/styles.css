@@ -1,0 +1,28 @@
+.loginContainer, .profileContainer, .updateContainer, .matchesContainer {
+	font-family: 'Lato', sans-serif;
+}
+
+.loginGuy, .newUserGuy {
+	max-width: 23%;
+	display: inline-block;
+	margin: 10px;
+	color: #34495e;
+}
+
+.newUserGuy {
+	border-left: 1px solid black;
+	padding-left: 18px;
+}
+
+.loginTopHalf {
+	height: 450px;
+	background-color: #34495e;
+	width: 100%;
+}
+
+.loginTitle {
+	color: white;
+	font-size: 70px;
+	font-weight: bold;
+	padding-right: 30px;
+}
