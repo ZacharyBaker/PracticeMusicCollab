@@ -11,8 +11,10 @@ module.exports = function(app){
 		.post(Ctrl.getUserByEmailAndPassword);
 		
 	app.route('/api/profile/:id')//used by profile.service
-		.get(Ctrl.getUserById);
+		.get(Ctrl.getUserById)
+		.delete(Ctrl.destroyById);
 		
 	app.route('/api/update/:id')
 		.put(Ctrl.updateUserById);
+		
 }

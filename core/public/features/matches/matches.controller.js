@@ -9,4 +9,14 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator){
 	$scope.deckOfUsers = deckOfUsers;
 	
 	$scope.potentialCollaborator = potentialCollaborator;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
