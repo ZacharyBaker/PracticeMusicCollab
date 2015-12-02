@@ -18,7 +18,7 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 			matchID: $scope.deckOfUsers[1]._id
 		})
 	}
-	
+	//FIND A WAY TO CHECK IF WANTS TO COLLAB ALREADY!!
 	$scope.wantsToCollab = function(){//you might need a .then on this for more functioinality
 		//adds potential collaborator's id to the profile/user's property imInterested [] array
 		matchesService.addIdToUserImInterested($scope.profileInfo._id, $scope.potentialCollaborator._id);
@@ -28,7 +28,10 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 		$scope.goToNextPotentialCollaborator();
 	}
 	
-
+	$scope.noThanks = function(){
+		//add potential collaborator's id to the profile/user's property notInterested [] array
+		matchesService.addToUserNotInterested($scope.profileInfo._id, $scope.potentialCollaborator._id)
+	}
 	
 	
 	

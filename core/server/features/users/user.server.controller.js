@@ -78,6 +78,14 @@ module.exports = {
 			if (err) res.status(500).send(err);
 			else res.json(result);
 		})
+	},
+	
+	updateNotInterested: function(req, res, next){
+		var id = req.body.id;
+		User.findByIdAndUpdate(req.params.id, { $push: {notInterested: id}}, function(err, result){
+			if (err) res.status(500).send(err);
+			else res.json(result);
+		})
 	}
 
 

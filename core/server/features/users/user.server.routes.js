@@ -22,4 +22,7 @@ module.exports = function(app){
 		
 	app.route('/api/interestedinme/update/:id')
 		.post(Ctrl.updateInterestedInMe);
+		
+	app.route('/api/notinterested/update/:id')
+		.post(Ctrl.updateNotInterested);
 }
