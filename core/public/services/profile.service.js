@@ -50,14 +50,12 @@ function profileService($q, $http) {
 					matchObjsArr.push(matchObj);
 					
 				})
-		})//WORKING ON $Q 
-		//LOOK AT LUKES SLACK
-		//FIGURE OUT .RESOLVE
+		})
 		
 		myPromise.resolve(matchObjsArr);
 		return myPromise.promise;
 		
-		//this might work??
+		
 		
 		
 		
