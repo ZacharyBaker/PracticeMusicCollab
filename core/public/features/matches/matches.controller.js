@@ -14,9 +14,9 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 	
 	
 	
-	// $scope.wantsToCollab = function(){
-	// 	matchesService.addIdToUsersImInterested($scope.profileInfo_id, $scope.potentialCollaborator._id);
-	// }
+	$scope.wantsToCollab = function(){//you might need a .then on this for more functioinality
+		matchesService.addIdToUserImInterested($scope.profileInfo._id, $scope.potentialCollaborator._id);
+	}
 	
 	
 	

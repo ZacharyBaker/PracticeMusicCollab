@@ -18,5 +18,5 @@ module.exports = function(app){
 		.put(Ctrl.updateUserById);
 		
 	app.route('/api/matching/update/:id')
-		.put(Ctrl.chickenJoe);
+		.post(Ctrl.chickenJoe);
 }
