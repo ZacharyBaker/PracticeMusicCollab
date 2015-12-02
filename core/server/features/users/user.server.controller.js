@@ -64,9 +64,17 @@ module.exports = {
 			})
 	},
 	
-	chickenJoe: function(req, res, next){
-		var id = req.body.id//you might need to change this to just req.body
+	updateImInterested: function(req, res, next){
+		var id = req.body.id;
 		User.findByIdAndUpdate(req.params.id, {$push: {imInterested: id}}, function(err, result){
+			if (err) res.status(500).send(err);
+			else res.json(result);
+		})
+	},
+	
+	updateInterestedInMe: function(req, res, next){
+		var id = req.body.id;
+		User.findByIdAndUpdate(req.params.id, {$push: {interestedInMe: id}}, function(err, result){
 			if (err) res.status(500).send(err);
 			else res.json(result);
 		})

@@ -85,7 +85,17 @@ function matchesService($q, $http) {
 	 
 	 
 	 this.addIdToUserImInterested = function(userID, collaborID){
-		 return $http.post('/api/matching/update/' + userID, {id : collaborID})
+		 return $http.post('/api/iminterested/update/' + userID, {id : collaborID})
+		 	.then(function(response){
+				 return response.data;
+			 }, function (err){
+				 console.log(err);
+				 return err;
+			 })
+	 }
+	 
+	 this.addIdToCollaboratorInterestedInMe = function(collaborID, userID){
+		 return $http.post('/api/interestedinme/update/' + collaborID, {id : userID})
 		 	.then(function(response){
 				 return response.data;
 			 }, function (err){
