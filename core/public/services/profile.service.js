@@ -28,5 +28,37 @@ function profileService($q, $http) {
 			})
 
 	}
+	
+	this.findMatches = function(profileInfo){
+		var matchObjsArr = [];
+		var matchesArray = [];
+		var intArr = profileInfo.imInterested;
+		var inMeArr = profileInfo.interestedInMe;
+		var myPromise = $q.defer();
+		
+		intArr.forEach(function(e){
+			if(inMeArr.indexOf(e) !== -1){
+				matchesArray.push(e);
+			}
+			
+		})
+		
+		matchesArray.forEach(function(e){
+			return $http.get('/api/profile/' + e)
+				.then(function(response){
+					var matchObj = response.data;
+					matchObjsArr.push(matchObj);
+					
+				})
+		})//WORKING ON $Q 
+		//LOOK AT LUKES SLACK
+		//FIGURE OUT .RESOLVE
+		
+		// return matchObjsArr;
+		
+		
+		
+		
+	}
 
 }

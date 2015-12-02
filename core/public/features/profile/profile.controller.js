@@ -1,8 +1,8 @@
 var musicApp = angular.module('musicApp');
 
-musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', profileCtrl]);
+musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', profileCtrl]);
 
-function profileCtrl($scope, profileInfo, $state, deckOfUsers){
+function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService){
 	
 	$scope.test = 'this is the sauciest test around';
 	
@@ -28,6 +28,16 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers){
 			matchID: $scope.deckOfUsers[0]._id
 		})
 	}
+	
+	$scope.findMatches = function(){
+		profileService.findMatches($scope.profileInfo)
+			.then(function(response){
+				console.log('this should be an array of matches', response)
+				$scope.matchObjsArr = response;
+				
+			})
+	}
+	$scope.findMatches();
 	
 
 	
