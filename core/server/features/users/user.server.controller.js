@@ -65,7 +65,8 @@ module.exports = {
 	},
 	
 	chickenJoe: function(req, res, next){
-		User.findByIdAndUpdate(req.params.id, req.body, function(err, result){
+		var id = req.body.id
+		User.findByIdAndUpdate(req.params.id, {$push: {imInterested: id}}, function(err, result){
 			if (err) res.status(500).send(err);//$PUSH check miles' slack 
 			else res.json(result);
 		})
