@@ -54,7 +54,10 @@ function profileService($q, $http) {
 		//LOOK AT LUKES SLACK
 		//FIGURE OUT .RESOLVE
 		
-		// return matchObjsArr;
+		myPromise.resolve(matchObjsArr);
+		return myPromise.promise;
+		
+		//this might work??
 		
 		
 		
