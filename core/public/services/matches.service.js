@@ -73,14 +73,20 @@ function matchesService($q, $http) {
 
 	}
 
-	this.getPotentialCollaboratorInfo = function(matchId){
+	this.getPotentialCollaboratorInfo = function (matchId) {
 		return $http.get('/api/profile/' + matchId)
-			.then(function(response){
+			.then(function (response) {
 				return response.data;
-			}, function (err){
+			}, function (err) {
 				console.log(err);
 				return err;
 			})
 	}
+	 
+	 
+	//  this.addIdToUsersImInterested = function(userID, collaborID){
+	// 	 return $http.put('/api/matching/update/' + userID, collaborID)
+	// 	 	.then//finish this
+	//  }
 
 }

@@ -62,6 +62,13 @@ module.exports = {
 				if (err) res.status(500).send('this is an error', err);
 				else res.status(204).send('Removed!');//where is this sending to?
 			})
+	},
+	
+	chickenJoe: function(req, res, next){
+		User.findByIdAndUpdate(req.params.id, req.body, function(err, result){
+			if (err) res.status(500).send(err);//$PUSH check miles' slack 
+			else res.json(result);
+		})
 	}
 
 

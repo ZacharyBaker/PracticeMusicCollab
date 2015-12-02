@@ -56,6 +56,10 @@ function routing($stateProvider, $urlRouterProvider) {
 				potentialCollaborator: function($stateParams, matchesService){
 					console.log('this is matchID', $stateParams.matchID);
 					return matchesService.getPotentialCollaboratorInfo($stateParams.matchID);
+				},
+				profileInfo: function($stateParams, profileService){
+					// console.log('this is _id', $stateParams._id);
+					return profileService.getProfileInfo($stateParams._id);
 				}
 			}
 			
