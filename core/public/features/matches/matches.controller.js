@@ -30,7 +30,9 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 	
 	$scope.noThanks = function(){
 		//add potential collaborator's id to the profile/user's property notInterested [] array
-		matchesService.addToUserNotInterested($scope.profileInfo._id, $scope.potentialCollaborator._id)
+		matchesService.addToUserNotInterested($scope.profileInfo._id, $scope.potentialCollaborator._id);
+		// reroutes to next potential collaborator
+		$scope.goToNextPotentialCollaborator();
 	}
 	
 	
