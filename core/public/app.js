@@ -1,8 +1,14 @@
 angular.module('musicApp', ['ui.router'])
 
+.constant('socket', io.connect())
+
 .config(['$stateProvider', '$urlRouterProvider', routing]);
 
+
 function routing($stateProvider, $urlRouterProvider) {
+
+//constant
+
 
 	$urlRouterProvider
 		.otherwise('/');

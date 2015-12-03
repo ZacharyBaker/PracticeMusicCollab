@@ -2,10 +2,7 @@ var mongoose = require('mongoose'),
 	express = require('./core/server/config/express'),
 	mongoUri = 'mongodb://localhost:27017/MusiCollab';
 
-
 var port = 3000;
-
-
 
 
 var app = express();
@@ -14,12 +11,11 @@ var socketio = require('socket.io');
  
 
 var io = socketio(http);
-
+console.log('this is IO.on',io.on);
 io.on('connection', function (socket) {
 	console.log('a user has connected');
 
 })
-
 
 
 http.listen(port, function () {
@@ -37,17 +33,15 @@ mongoose.connection.once('open', function () {
 
 
 
-
-
-//ADSLKFASDJF;LAKSDJFA;LKSDJFASDKLFJASD;LKFJAS
-
-// var app = require('./core/server/config/express')();
+// var app = require('express')();
 // var http = require('http').Server(app);
 // var socketio = require('socket.io');
 
 // var io = socketio(http);
 
-
+// app.get('/', function (req, res) {
+//     res.sendFile(__dirname +'/core/public/index.html');
+// });
 
 // io.on('connection', function (socket) {
 //     console.log('homie is connected')
@@ -67,4 +61,5 @@ mongoose.connection.once('open', function () {
 // http.listen(3000, function () { // event listener too
 //     console.log('listening on port 3000');
 // });
+
 

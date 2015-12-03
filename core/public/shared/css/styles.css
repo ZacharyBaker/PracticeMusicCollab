@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+/*LOGIN PAGE*/
 .loginContainer, .profileContainer, .updateContainer, .matchesContainer {
 	font-family: 'Lato', sans-serif;
 }
@@ -25,4 +29,51 @@
 	font-size: 90px;
 	font-weight: bold;
 	padding-right: 30px;
+}
+
+/*PROFILE PAGE*/
+.profileContainer {
+	/*background-color: #34495e;*/
+	background-color: #EEEEEE;
+}
+
+#profileNav {
+	background-color: #34495e;
+	
+}
+
+.profileTitle {
+	
+	margin-left: 20px;
+}
+
+/*#buttonBox {
+	background-color: white;
+	border-radius: 5px;
+}*/
+#displayInline {
+	display: inline;
+}
+
+#profileButtons {
+	font-size: 25px;
+	white-space: nowrap;
+	background-color: #34495e;
+	
+}
+#matchingBox {
+	background-color: white;
+	margin-left: 30px;
+}
+
+.A {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 40px;
+	margin-top: 0px;
+}
+
+.firstBox {
+	background-color: white;
+
 }

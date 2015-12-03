@@ -1,38 +1,80 @@
-<div class="profileContainer container">this is the friggen profile page breh</br>
+<div class="profileContainer">
 
-{{profileInfo}}
-
-
-
-<h1>{{profileInfo.username}}</h1>
-<h1>{{profileInfo.email}}</h1>
-<h1>{{profileInfo.password}}</h1>
-
-
-<!--testing socket-->
-
-
-<input type="text" placeholder="message test" ng-model="newMessage"> <button ng-click="submitMessage()">Submit</button>
-<ul>
-	<li ng-repeat="message in messages">
-		{{message}}
-	</li>
-</ul>
+	<nav>
+		<div id="profileNav" class="nav-wrapper">
+			<a href="#!" class="profileTitle brand-logo">MUSICLAB</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
+				</li>
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
+				</li>
 
 
+			</ul>
+			<ul class="side-nav right" id="mobile-demo">
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
+				</li>
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
+				</li>
 
-<!---->
 
-<h3>HERE ARE YOUR MATCHES</h3>
-{{matchObjsArr}}
+			</ul>
+		</div>
+	</nav>
+	
 
-<img ng-src="{{profileInfo.profPic}}">
-<br>
-<p>{{profileInfo.bio}}</p>
-<button ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
 
-<button ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
+
+	<div class="row">
+		<div class="z-depth-5 card-panel col s7 A">
+
+
+
+			<h1>{{profileInfo.username}}</h1>
+			
+
+
+			<!--testing socket-->
+
+			<input type="text" placeholder="message test" ng-model="newMessage">
+			<button ng-click="submitMessage()">Submit</button>
+			<ul>
+				<li ng-repeat="message in messages">
+					{{message}}
+				</li>
+			</ul>
+			<!---->
+
+
+
+
+
+
+			<img class="circle responsive-img" ng-src="{{profileInfo.profPic}}">
+			<br>
+			<p>{{profileInfo.bio}}</p>
+
+
+
+
+
+		</div>
+		<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s4">
+			<messagesaccordion></messagesaccordion>
+			
+			<!--<h3>HERE ARE YOUR MATCHES</h3>
+			<li ng-repeat="match in matchObjsArr">
+				<div class="collapsible-header">{{match.username}}</div>
+				<div class="collapsible-body">
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+			</li>-->
+		</ul>
+	</div>
 
 </div>
-
-{{deckOfUsers}}
