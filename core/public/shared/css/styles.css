@@ -47,10 +47,7 @@
 	margin-left: 20px;
 }
 
-/*#buttonBox {
-	background-color: white;
-	border-radius: 5px;
-}*/
+
 #displayInline {
 	display: inline;
 }
@@ -72,8 +69,11 @@
 	margin-left: 40px;
 	margin-top: 0px;
 }
-
-.firstBox {
-	background-color: white;
-
+#profilePageProfileBox {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#matchingBox {
+	margin-top: 10px;
+	padding-bottom: 10px;
 }

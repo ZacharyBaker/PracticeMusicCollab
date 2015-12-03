@@ -11,6 +11,7 @@ angular.module('musicApp')
 						//collapsible behavior to expandable instead 
 						//of the default accordion style
 					});
+					
 				});
 			}
 		};

@@ -26,17 +26,17 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 
 
 
 	<div class="row">
-		<div class="z-depth-5 card-panel col s7 A">
+		<div id="profilePageProfileBox" class="z-depth-5 card-panel col s12 m9 l7 A">
 
 
 
 			<h1>{{profileInfo.username}}</h1>
-			
+
 
 
 			<!--testing socket-->
@@ -64,17 +64,34 @@
 
 
 		</div>
-		<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s4">
-			<messagesaccordion></messagesaccordion>
-			
-			<!--<h3>HERE ARE YOUR MATCHES</h3>
+		<messagesaccordion></messagesaccordion>
+		<!--<ul id="matchingBox" data-collapsible="accordion" class="collapsible popout z-depth-5 card-panel col s4">
+
+			<h3>HERE ARE YOUR MATCHES</h3>
 			<li ng-repeat="match in matchObjsArr">
 				<div class="collapsible-header">{{match.username}}</div>
 				<div class="collapsible-body">
-					<p>Lorem ipsum dolor sit amet.</p>
+					<p>{{match.bio}}</p>
 				</div>
-			</li>-->
-		</ul>
+			</li>
+		</ul>-->
+
+
+
+
+
+		<!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+		<!-- Modal Structure -->
+		<!--<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4>Modal Header</h4>
+				<p>A bunch of text</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			</div>
+		</div>-->
 	</div>
 
 </div>
