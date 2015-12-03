@@ -18,6 +18,7 @@ module.exports = function(){
 	
 	//CONFIGURE THE ROUTES
 	require('../features/users/user.server.routes')(app);
+	require('../features/conversations/conversation.server.routes')(app);
 	
 	//root of angular app
 	app.use(express.static('./core/public'));

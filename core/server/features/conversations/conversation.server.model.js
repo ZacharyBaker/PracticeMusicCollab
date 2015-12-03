@@ -12,7 +12,9 @@ var ConversationSchema = new Schema ({
 		type: String,
 		required: true
 	},
-	messages: [{type}]//asdfasdfasdfasdfasd
+	messages: [{type: String}]
 	
 	
 })
+
+module.exports = mongoose.model('Conversation', ConversationSchema);
