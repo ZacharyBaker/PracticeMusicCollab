@@ -2,9 +2,9 @@ var musicApp = angular.module('musicApp');
 
 musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', profileCtrl]);
 
-function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService){
+function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService){//add socket service to dis
 	
-	$scope.test = 'this is the sauciest test around';
+
 	
 	// console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
@@ -38,7 +38,11 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService){
 			})
 	}
 	$scope.findMatches();
+	// socket testing 
 	
+	$scope.submitMessage = function(){
+		
+	}
 
 	
 }

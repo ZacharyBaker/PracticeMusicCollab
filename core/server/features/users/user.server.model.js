@@ -42,8 +42,8 @@ var UserSchema = new Schema({
 	interestedInMe: [{
 		type: String// also an id	
 	}],
-	collaborations: [{
-		type: Schema.Types.ObjectId, ref: 'Collaborations'// make sure and make this collection :)
+	conversations: [{
+		type: Schema.Types.ObjectId, ref: 'Conversations'// make sure and make this collection :)
 	}]
 })
 

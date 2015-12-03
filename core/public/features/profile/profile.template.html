@@ -1,12 +1,27 @@
 <div class="profileContainer container">this is the friggen profile page breh</br>
 
-here is our test:  <h3>{{test}}</h3>{{profileInfo}}
+{{profileInfo}}
 
-here is the real test <br>
+
 
 <h1>{{profileInfo.username}}</h1>
 <h1>{{profileInfo.email}}</h1>
 <h1>{{profileInfo.password}}</h1>
+
+
+<!--testing socket-->
+
+
+<input type="text" placeholder="message test" ng-model="newMessage"> <button ng-click="submitMessage()">Submit</button>
+<ul>
+	<li ng-repeat="message in messages">
+		{{message}}
+	</li>
+</ul>
+
+
+
+<!---->
 
 <h3>HERE ARE YOUR MATCHES</h3>
 {{matchObjsArr}}
