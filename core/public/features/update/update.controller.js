@@ -1,12 +1,16 @@
 var musicApp = angular.module('musicApp');
 
-musicApp.controller('updateCtrl', ['$scope', 'profileInfo', 'profileService', updateCtrl]);
+musicApp.controller('updateCtrl', ['$scope', 'profileInfo', 'profileService', '$state', updateCtrl]);
 
-function updateCtrl($scope, profileInfo, profileService){
+function updateCtrl($scope, profileInfo, profileService, $state){
 	
-	$scope.test = 'hella testin this ish';
+
 	$scope.profileInfo = profileInfo;
-	
+	$scope.goToProfile = function(id){
+		$state.go('profile', {
+			_id: id
+		});
+	}
 	
 	// $scope.userWithUpdates._id = profileInfo._id;
 	
