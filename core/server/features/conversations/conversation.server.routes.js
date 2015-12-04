@@ -6,4 +6,6 @@ module.exports = function(app){
 		.get(Ctrl.getConversations)
 		.post(Ctrl.postConversation);
 	
+	app.route('/api/conversations/:userID/:matchID')
+		.post(Ctrl.findConversation);
 }

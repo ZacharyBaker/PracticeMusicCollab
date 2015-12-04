@@ -36,11 +36,14 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			.then(function (response) {
 				console.log('this should be an array of matches', response)
 				$scope.matchObjsArr = response;
-
+				//call findConversations in here!!!!!
 			})
 	}
-	$scope.findMatches();
+	$scope.findMatches();//maybe do a .then(findConversations()); read code above
 	
+	$scope.findConversations = function(){
+		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr).then// yadayadayada
+	}
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS
 	$scope.submitMessage = function(){

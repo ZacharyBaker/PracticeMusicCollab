@@ -15,6 +15,17 @@ module.exports = {
 			if (err) res.status(500).send(err);
 			else res.json(results)
 		})
+	},
+	
+	//---------------------nasty stuff
+	
+	findConversation: function(req, res){
+		Conversation.find({participants: {"$in" : [req.params.userID, req.params.matchID]}})
+			.then(function(response, err){
+				if (err) res.status(500).send(err);
+				else res.json(response);
+			})
+			
 	}
 	
 }

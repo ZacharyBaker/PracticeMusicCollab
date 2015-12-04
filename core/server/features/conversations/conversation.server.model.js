@@ -4,15 +4,11 @@ var mongoose = require('mongoose'),
 var ConversationSchema = new Schema ({
 	
 	
-	profileUser: {
-		type: String,
-		required: true
-	},
-	collabUser: {
-		type: String,
-		required: true
-	},
-	messages: [{type: String}]
+	participants: [{type: String}],
+	messages: [{
+		sender: {type: String},
+		text: {type: String}
+	}]
 	
 	
 })

@@ -55,11 +55,21 @@ function profileService($q, $http) {
 		myPromise.resolve(matchObjsArr);
 		return myPromise.promise;
 		
-		
-		
-		
-		
-		
 	}
+	
+	this.findConversations = function(profileInfo, arrOfMatches){
+		
+		var myPromise = $q.defer();
+		
+		arrOfMatches.forEach(function(e){
+			return $http.post('/api/conversations/' + profileInfo._id + '/' + e._id)
+				.then
+		})
+		
+		
+		
+		return myPromise.promise;
+	}
+	
 
 }

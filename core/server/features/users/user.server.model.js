@@ -16,35 +16,35 @@ var UserSchema = new Schema({
 	password: {
 		type: String,
 		required: true
-	}
-	// profPic: {
-	// 	type: String
-	// },	
-	// genre: {
-	// 	type: String//MAKE THIS ENUM LATER SO THEY CAN JUST CHOOSE FROM A LIST
-	// },// THAT MIGHT MAKE IT EASIER FOR SOMEONE TO SORT THROUGH PEOPLE THEY DON'T WANT
-	// instruments: [{
-	// 	type: String
-	// }],
-	// bio: {
-	// 	type: String,
-	// 	maxlength: 200
-	// },
-	// soundcloud: {
-	// 	type: String
-	// },
-	// notInterested: [{
-	// 	type: String//this will be an id	
-	// }],
-	// imInterested: [{
-	// 	type: String//also an id	
-	// }],
-	// interestedInMe: [{
-	// 	type: String// also an id	
-	// }],
-	// conversations: [{
-	// 	type: Schema.Types.ObjectId, ref: 'Conversations'// make sure and make this collection :)
-	// }]
+	},
+	profPic: {
+		type: String
+	},	
+	genre: {
+		type: String//MAKE THIS ENUM LATER SO THEY CAN JUST CHOOSE FROM A LIST
+	},// THAT MIGHT MAKE IT EASIER FOR SOMEONE TO SORT THROUGH PEOPLE THEY DON'T WANT
+	instruments: [{
+		type: String
+	}],
+	bio: {
+		type: String,
+		maxlength: 200
+	},
+	soundcloud: {
+		type: String
+	},
+	notInterested: [{
+		type: String//this will be an id	
+	}],
+	imInterested: [{
+		type: String//also an id	
+	}],
+	interestedInMe: [{
+		type: String// also an id	
+	}],
+	conversations: [{
+		type: Schema.Types.ObjectId, ref: 'Conversation'// make sure and make this collection :)
+	}]
 });
 
 module.exports = mongoose.model('User', UserSchema);

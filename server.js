@@ -13,7 +13,7 @@ var socketio = require('socket.io');
 var io = socketio(http);
 
 io.on('connection', function (socket) {
-	console.log('a homie has connected');
+	console.log('a homie has connected via socketio');
 	socket.on('message', function(message){
 		console.log('server was just served message:'+ message.text);
 		io.sockets.emit('messageFromServer', message);
