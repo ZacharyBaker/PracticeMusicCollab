@@ -12,6 +12,12 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 	
 	$scope.profileInfo = profileInfo;
 	
+	$scope.goToProfile = function(id){
+		$state.go('profile', {
+			_id: id
+		});
+	}
+	
 	$scope.goToNextPotentialCollaborator = function(){
 		$state.go('matches', {
 			_id: $scope.profileInfo._id,

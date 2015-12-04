@@ -1,19 +1,39 @@
 <div class="matchesContainer container">
 
-<!--<h2>{{test}}</h2>-->
+	<nav>
+		<div id="profileNav" class="nav-wrapper">
+			<a href="#!" class="profileTitle brand-logo">MUSICLAB</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
+				</li>
 
-<!--<div ng-repeat="user in deckOfUsers">{{user}}</div>-->
+
+			</ul>
+			<ul class="side-nav right" id="mobile-demo">
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
+				</li>
+				<li>
+					<button class="btn-flat disabled" id="profileButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
+				</li>
+
+
+			</ul>
+		</div>
+	</nav>
 
 
 
-<img ng-src="{{potentialCollaborator.profPic}}">
-<h3>{{potentialCollaborator.username}}</h3>
-{{potentialCollaborator.bio}}
-<button ng-click="wantsToCollab()">Collab?</button><button ng-click="noThanks()">OrNah?</button>
+	<img ng-src="{{potentialCollaborator.profPic}}">
+	<h3>{{potentialCollaborator.username}}</h3> {{potentialCollaborator.bio}}
+	<button ng-click="wantsToCollab()">Collab?</button>
+	<button ng-click="noThanks()">OrNah?</button>
 
 
 
 </div>
 
 this is the potential collaborator {{potentialCollaborator}}
-

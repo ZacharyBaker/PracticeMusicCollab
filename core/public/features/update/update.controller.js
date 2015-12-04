@@ -19,7 +19,7 @@ function updateCtrl($scope, profileInfo, profileService, $state){
 		profileService.updateUser(profileInfo).then(function(data){
 			// console.log(data);
 			// $scope.profileInfo = {};
-			
+			// Materialize.toast('I am a toast', 4000)
 		})
 	}
 }

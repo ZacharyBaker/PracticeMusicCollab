@@ -27,7 +27,7 @@
 	</nav>
 
 
-	<form ng-submit="updateUser(profileInfo)">
+	<form class="updater" ng-submit="updateUser(profileInfo)">
 		Username:
 		<input type="text" ng-model="profileInfo.username">
 		<br> Email:
@@ -47,7 +47,7 @@
 		<textarea name="" cols="30" rows="6" maxlength="200" ng-model="profileInfo.bio"></textarea>
 
 
-		<button>Submit Changes</button>
+		<button onclick="Materialize.toast('Updated!', 3000, 'rounded')">Submit Changes</button>
 	</form>
 
 </div>
