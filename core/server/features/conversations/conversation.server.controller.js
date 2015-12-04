@@ -20,10 +20,24 @@ module.exports = {
 	//---------------------nasty stuff
 	
 	findConversation: function(req, res){
-		Conversation.find({participants: {"$in" : [req.params.userID, req.params.matchID]}})
-			.then(function(response, err){
+		Conversation.find({participants: {$all : [req.params.userID, req.params.matchID]}})
+			// .where({participants: {$in: [req.params.userID]}})
+			// .where({participants: {$in: [req.params.matchID]}})
+			.populate('participants')
+			.exec(function(err, response){
+				console.log(response);
 				if (err) res.status(500).send(err);
-				else res.json(response);
+				if (response.length === 0){
+					var newConvo = new Conversation({participants: [req.params.userID, req.params.matchID], messages: []});
+					newConvo.save(function(err, results){
+						if (err) res.status(500).send(err);
+						else res.json(results);
+					})
+					
+				}
+				else {
+					res.json(response);
+				}
 			})
 			
 	}

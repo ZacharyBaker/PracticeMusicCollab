@@ -69,25 +69,32 @@ function profileService($q, $http) {
 			return $http.get('/api/conversations/' + profileInfo._id + '/' + e._id)
 				.then(function (response) {
 					var convo = response.data;
+					// var otherPerson;
+					// for(var participant in convo.participants) {
+					// 	if(convo.participants[participant].username === e.username) {
+					// 		otherPerson = convo.participants[participant].username;
+					// 	}
+					// }
+					// convo.otherPerson = otherPerson;
+					arrOfConvos.push(convo);
+					myPromise.resolve(arrOfConvos);
+					// if (convo.length === 0) {
+					// 	//MAKE A NEW CONVO
+					// 	return $http.post('/api/conversations', { participants: [profileInfo._id, e._id], messages: [] }, function (err, response) {
+					// 		if (err) {
+					// 			console.log(err);
+					// 			return err;
+					// 		}
+					// 		else arrOfConvos.push(response.data);
+					// 	})
+					// }
+					// else {
+					//if arrOfConvos.lenght === arrOfmatches.length then resovle arrofconvos
+					// if (convo.length === arrOfMatches.length) {
+					// 	myPromise.resolve(arrOfConvos);
 
-					if (convo.length === 0) {
-						//MAKE A NEW CONVO
-						return $http.post('/api/conversations', { participants: [profileInfo._id, e._id], messages: [] }, function (err, response) {
-							if (err) {
-								console.log(err);
-								return err;
-							}
-							else arrOfConvos.push(response.data);
-						})
-					}
-					else {
-						arrOfConvos.push(response);
-						//if arrOfConvos.lenght === arrOfmatches.length then resovle arrofconvos
-						if (arrOfConvos.length === arrOfMatches.length) {
-							myPromise.resolve(arrOfConvos);
-
-						}
-					}
+					// }
+						// }
 				})
 		})
 

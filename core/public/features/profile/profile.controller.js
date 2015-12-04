@@ -35,12 +35,12 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		profileService.findMatches($scope.profileInfo)
 			.then(function (response) {
 				$scope.matchObjsArr = response;
-				console.log('this should be an array of match Objects', $scope.matchObjsArr);
+
 				//call findConversations in here!!!!!
 				$scope.findConversations();
 			})
 	}
-	$scope.findMatches();//maybe do a .then(findConversations()); read code above
+	$scope.findMatches();
 	
 	$scope.findConversations = function(){
 		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
