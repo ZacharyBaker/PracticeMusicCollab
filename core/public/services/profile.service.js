@@ -28,7 +28,7 @@ function profileService($q, $http) {
 			})
 
 	}
-	
+	//----------FIND MATCHES-----------
 	this.findMatches = function(profileInfo){
 		var matchObjsArr = [];
 		var matchesArray = [];
@@ -56,18 +56,34 @@ function profileService($q, $http) {
 		return myPromise.promise;
 		
 	}
-	
+	//----------------FIND CONVERSATIONS
 	this.findConversations = function(profileInfo, arrOfMatches){
-		
+		var arrOfConvos = [];
 		var myPromise = $q.defer();
 		
 		arrOfMatches.forEach(function(e){
-			return $http.post('/api/conversations/' + profileInfo._id + '/' + e._id)
-				.then
+			return $http.get('/api/conversations/' + profileInfo._id + '/' + e._id)
+				.then(function(response){//does this need to be response.data? to find the right info?
+					//maybe make a var for response.data? depending on what it is 
+					
+					if (response.length === 0){
+						//MAKE A NEW CONVO
+						return $http.post('/api/conversations', {participants: [profileInfo._id, e._id], messages: [] }, function(err, response){
+							if (err) {
+								console.log(err);
+								return err;
+							}
+							else arrOfConvos.push(response);//or response.data
+						})
+					}
+					else {
+						arrOfConvos.push(response)
+					}
+				})
 		})
 		
 		
-		
+		myPromise.resolve(arrOfConvos);
 		return myPromise.promise;
 	}
 	

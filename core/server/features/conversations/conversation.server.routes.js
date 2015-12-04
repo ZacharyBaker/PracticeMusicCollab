@@ -7,5 +7,5 @@ module.exports = function(app){
 		.post(Ctrl.postConversation);
 	
 	app.route('/api/conversations/:userID/:matchID')
-		.post(Ctrl.findConversation);
+		.get(Ctrl.findConversation);
 }
