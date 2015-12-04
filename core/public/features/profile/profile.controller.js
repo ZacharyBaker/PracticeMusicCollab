@@ -60,7 +60,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		//code here
 		//^^^^
 		
-			
+		
 	}
 	//socket listener------------------
 		socket.on('messageFromServer', function(messageObjFromServer){
