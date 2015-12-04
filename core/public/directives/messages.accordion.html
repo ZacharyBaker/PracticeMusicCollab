@@ -1,10 +1,16 @@
-<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s4">
+<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s11 m8 l4">
 
 	<h3>HERE ARE YOUR MATCHES</h3>
 	<li ng-repeat="match in matchObjsArr">
 		<div class="collapsible-header">{{match.username}}</div>
 		<div class="collapsible-body">
-			<p>{{match.bio}}</p>
+			<input type="text" placeholder="message text" ng-model="newMessage">
+			<button ng-click="submitMessage(newMessage)">Submit</button>
+			<ul>
+				<li ng-repeat="message in messages track by $index">
+					{{message.text}}
+				</li>
+			</ul>
 		</div>
 	</li>
 </ul>

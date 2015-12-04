@@ -1,8 +1,8 @@
 var musicApp = angular.module('musicApp');
 
-musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', profileCtrl]);
+musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', 'socket', profileCtrl]);
 
-function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService) {//add socket service to dis
+function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, socket) {//add socket service to dis
 	
 
 	
@@ -40,10 +40,36 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService) {
 			})
 	}
 	$scope.findMatches();
-	// socket testing 
 	
-	$scope.submitMessage = function () {
-
+	// socket testing 
+	$scope.messages = [
+		{
+			text: 'hello brother'
+		}
+	]
+	$scope.submitMessage = function (message) {
+		var newMessage = {
+			text: message,
+			date: new Date()
+		};
+		
+		//sockets-----------------------------
+		socket.emit('message', newMessage);
+		
+		//make a call to the backend to post this message
+		//code here
+		//^^^^
+		
+		//socket listener------------------
+		socket.on('messageFromServer', function(messageObjFromServer){
+			console.log('this is messageObjFromServer', messageObjFromServer);
+			$scope.messages.push(messageObjFromServer);
+			$scope.$apply();
+		
+		})
+		
+		
+		
 	}
 
 

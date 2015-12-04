@@ -4,11 +4,11 @@ var mongoose = require('mongoose'),
 var ConversationSchema = new Schema ({
 	
 	
-	participantA: {
+	sender: {
 		type: String,
 		required: true
 	},
-	participantB: {
+	reciever: {
 		type: String,
 		required: true
 	},
