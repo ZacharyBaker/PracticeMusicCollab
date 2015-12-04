@@ -40,6 +40,7 @@ module.exports = {
 
 
 		User.findById(req.params.id)
+			.populate('conversations')//populating convos
 			.exec()
 			.then(function (response, err) {
 				if (response) res.json(response);

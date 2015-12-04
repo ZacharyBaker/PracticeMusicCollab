@@ -10,6 +10,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	// console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
+	$scope.deckOfUsers = deckOfUsers;
 
 
 	$scope.goToUpdatePage = function (id) {
@@ -19,17 +20,16 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		});
 	}
 
-
-	$scope.deckOfUsers = deckOfUsers;
-
-
-
 	$scope.goToMatchesPage = function (id) {
 		$state.go('matches', {
 			_id: id,
 			matchID: $scope.deckOfUsers[0]._id
 		})
 	}
+
+
+
+
 
 	$scope.findMatches = function () {
 		profileService.findMatches($scope.profileInfo)
@@ -41,34 +41,43 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 	$scope.findMatches();
 	
-	// socket testing 
-	$scope.messages = [
-		{
-			text: 'hello brother'
-		}
-	]
-	$scope.submitMessage = function (message) {
-		var newMessage = {
-			text: message,
-			date: new Date()
-		};
-		
-		//sockets-----------------------------
-		socket.emit('message', newMessage);
-		
-		//make a call to the backend to post this message
-		//code here
-		//^^^^
-		
+	
+	//WORKING ON INDIVIDUAL CONVERSATOIONS
+	$scope.submitMessage = function(){
 		
 	}
-	//socket listener------------------
-		socket.on('messageFromServer', function(messageObjFromServer){
-			console.log('this is messageObjFromServer', messageObjFromServer);
-			$scope.messages.push(messageObjFromServer);
-			$scope.$apply();
+	
+	
+	
+	
+	// socket testing ------------------------------------------
+	// $scope.messages = [
+	// 	{
+	// 		text: 'hello brother'
+	// 	}
+	// ]
+	// $scope.submitMessage = function (message) {
+	// 	var newMessage = {
+	// 		text: message,
+	// 		date: new Date()
+	// 	};
 		
-		})
-
+	// 	//sockets-----------------------------
+	// 	socket.emit('message', newMessage);
+		
+	// 	//make a call to the backend to post this message
+	// 	//code here
+	// 	//^^^^
+		
+		
+	// }
+	// //socket listener------------------
+	// 	socket.on('messageFromServer', function(messageObjFromServer){
+	// 		console.log('this is messageObjFromServer', messageObjFromServer);
+	// 		$scope.messages.push(messageObjFromServer);
+	// 		$scope.$apply();
+		
+	// 	})
+//---------------------------------------------------------------------------
 
 }

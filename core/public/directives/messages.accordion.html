@@ -1,15 +1,17 @@
 <ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s11 m8 l4">
 
 	<h3>HERE ARE YOUR MATCHES</h3>
+	<!--{{matchObjsArr}}-->
 	<li ng-repeat="match in matchObjsArr">
 		<div class="collapsible-header">{{match.username}}</div>
 		<div class="collapsible-body">
 			<ul>
+				<!--change below code to specific conversation-->
 				<li ng-repeat="message in messages track by $index">
 					{{message.text}}
 				</li>
 			</ul>
-			<form ng-submit="submitMessage(newMessage)">
+			<form ng-submit="submitMessage()">
 				<input type="text" placeholder="message text" ng-model="newMessage">
 				<button>Submit</button>
 			</form>
