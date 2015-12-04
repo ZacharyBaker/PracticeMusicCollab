@@ -34,15 +34,20 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	$scope.findMatches = function () {
 		profileService.findMatches($scope.profileInfo)
 			.then(function (response) {
-				console.log('this should be an array of matches', response)
 				$scope.matchObjsArr = response;
+				console.log('this should be an array of match Objects', $scope.matchObjsArr);
 				//call findConversations in here!!!!!
+				$scope.findConversations();
 			})
 	}
 	$scope.findMatches();//maybe do a .then(findConversations()); read code above
 	
 	$scope.findConversations = function(){
-		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr).then// yadayadayada
+		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
+			.then(function(response){
+				$scope.arrOfConvos = response;
+				console.log('$scope.arrOfConvos', $scope.arrOfConvos);
+			})
 	}
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS
