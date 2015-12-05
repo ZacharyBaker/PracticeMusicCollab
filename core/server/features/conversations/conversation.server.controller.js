@@ -45,6 +45,7 @@ module.exports = {
 	//updateconvo
 	
 	updateConversation: function(req, res){
+		console.log(req.body);
 		Conversation.findByIdAndUpdate(req.params.convoID, {$push: {messages : req.body}}, function(err, result){
 			if (err) res.status(500).send(err);
 			else res.json(result);

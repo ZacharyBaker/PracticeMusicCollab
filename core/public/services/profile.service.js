@@ -103,6 +103,7 @@ function profileService($q, $http) {
 	}
 	//SENDING MESSAGES TO THE BACK
 	this.sendMessage = function(messageObj, conversationID){
+		
 		return $http.post('/api/conversations/' + conversationID, messageObj)
 			.then(function(response){
 				console.log('response.data in the profservice after updating ish', response.data);
