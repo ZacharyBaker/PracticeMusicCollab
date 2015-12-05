@@ -101,9 +101,10 @@ function profileService($q, $http) {
 
 		return myPromise.promise;
 	}
-	
-	this.sendMessage = function(messageObj){
-		return $http.post('/api/conversations')
+	//SENDING MESSAGES TO THE BACK
+	this.sendMessage = function(messageObj, conversationID){
+		return $http.post('/api/conversations/' + conversationID, messageObj)
+			.then//finish this
 	}
 
 

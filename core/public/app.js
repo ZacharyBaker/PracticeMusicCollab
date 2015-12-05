@@ -31,7 +31,7 @@ function routing($stateProvider, $urlRouterProvider) {
 					return profileService.getProfileInfo($stateParams._id);
 				},
 				deckOfUsers: function($stateParams, matchesService){
-					console.log('this is _id', $stateParams._id);
+					// console.log('this is _id', $stateParams._id);
 					return matchesService.getDeckOfUsers($stateParams._id);
 				}
 			}

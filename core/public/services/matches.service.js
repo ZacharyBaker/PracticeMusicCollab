@@ -10,7 +10,7 @@ function matchesService($q, $http) {
 		var orderedDeck = [];
 		return $http.get('api/profile/' + id)
 			.then(function (response) {
-				console.log('matches service, response.data', response.data);
+				// console.log('matches service, response.data', response.data);
 				var userInfo = response.data;
 				// return userInfo;
 				//use userInfo to get the right deck
@@ -19,7 +19,7 @@ function matchesService($q, $http) {
 				//userInfo.collaborations
 				return $http.get('/api/users')
 					.then(function (response) {
-						console.log('innerfunction response.data', response.data);
+						// console.log('innerfunction response.data', response.data);
 						var arrOfUsers = response.data;
 						if (userInfo.notInterested) {
 
@@ -66,7 +66,7 @@ function matchesService($q, $http) {
 
 
 
-						console.log('orderedDeck', orderedDeck);
+						// console.log('orderedDeck', orderedDeck);
 						return orderedDeck;
 					})
 			})

@@ -46,25 +46,26 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
 			.then(function(response){
 				$scope.arrOfConvos = response;
-				console.log('$scope.arrOfConvos', $scope.arrOfConvos);
+				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
 			})
 	}
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
-	$scope.submitMessage = function(){
+	$scope.submitMessage = function(specificConvo){
+		
 		var messageObj = {
 			sender: profileInfo._id,
 			text : $scope.newMessage
 		}
-		profileService.sendMessage(messageObj)
+		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function(response){
 				//depending on what we get back will determine what we do
 			})
 	}
 	//STRAIGHT UP WITCHCRAFT
 	$scope.findPersonImTalkingTo = function(specificConvo){
-		console.log('specificConvo',specificConvo);
-		console.log('digging deeper', specificConvo[0].participants[0].username);
+		// console.log('specificConvo',specificConvo);
+		// console.log('digging deeper', specificConvo[0].participants[0].username);
 		if (specificConvo[0].participants[0].username === profileInfo.username){
 			$scope.personImTalkingTo = specificConvo[0].participants[1];
 		}

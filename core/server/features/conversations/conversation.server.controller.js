@@ -25,9 +25,9 @@ module.exports = {
 			// .where({participants: {$in: [req.params.matchID]}})
 			.populate('participants')
 			.exec(function(err, response){
-				console.log(response);
+				// console.log(response);
 				if (err) res.status(500).send(err);
-				if (response.length === 0){
+				if (response.length === 0){//still not positive this works
 					var newConvo = new Conversation({participants: [req.params.userID, req.params.matchID], messages: []});
 					newConvo.save(function(err, results){
 						if (err) res.status(500).send(err);
@@ -40,6 +40,15 @@ module.exports = {
 				}
 			})
 			
+	},
+	
+	//updateconvo
+	
+	updateConversation: function(req, res){
+		Conversation.findByIdAndUpdate(req.params.convoID, {$push: {messages : req.body}}, function(err, result){
+			if (err) res.status(500).send(err);
+			else res.json(result);
+		})
 	}
 	
 }

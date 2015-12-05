@@ -11,7 +11,7 @@
 					yelaabelly{{}}
 				</li>
 			</ul>
-			<form ng-submit="submitMessage()">
+			<form ng-submit="submitMessage(arrOfConvos[$index])">
 				<input type="text" placeholder="message text" ng-model="newMessage">
 				<button>Submit</button>
 			</form>
