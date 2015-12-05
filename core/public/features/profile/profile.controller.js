@@ -50,12 +50,29 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			})
 	}
 	
-	//WORKING ON INDIVIDUAL CONVERSATOIONS
+	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
 	$scope.submitMessage = function(){
-		
+		var messageObj = {
+			sender: profileInfo._id,
+			text : $scope.newMessage
+		}
+		profileService.sendMessage(messageObj)
+			.then(function(response){
+				//depending on what we get back will determine what we do
+			})
 	}
-	
-	
+	//STRAIGHT UP WITCHCRAFT
+	$scope.findPersonImTalkingTo = function(specificConvo){
+		console.log('specificConvo',specificConvo);
+		console.log('digging deeper', specificConvo[0].participants[0].username);
+		if (specificConvo[0].participants[0].username === profileInfo.username){
+			$scope.personImTalkingTo = specificConvo[0].participants[1];
+		}
+		else {
+			$scope.personImTalkingTo = specificConvo[0].participants[0];
+		}
+		console.log('personImTalkingTo', $scope.personImTalkingTo);
+	}
 	
 	
 	// socket testing ------------------------------------------

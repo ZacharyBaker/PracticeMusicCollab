@@ -101,6 +101,10 @@ function profileService($q, $http) {
 
 		return myPromise.promise;
 	}
+	
+	this.sendMessage = function(messageObj){
+		return $http.post('/api/conversations')
+	}
 
 
 }

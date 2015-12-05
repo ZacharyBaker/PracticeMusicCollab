@@ -6,7 +6,7 @@ var ConversationSchema = new Schema ({
 	
 	participants: [{type: Schema.Types.ObjectId, ref: 'User'}],
 	messages: [{
-		sender: {type: String},
+		sender: {type: String},//make a ref if you want or need to do so
 		text: {type: String}
 	}]
 	
