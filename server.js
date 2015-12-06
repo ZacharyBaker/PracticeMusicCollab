@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 
 var port = 3000;
 
-
 var app = express();
 var http = require('http').Server(app);
 var socketio = require('socket.io');
