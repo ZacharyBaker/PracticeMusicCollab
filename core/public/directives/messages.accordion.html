@@ -7,13 +7,13 @@
 		<div class="collapsible-body">
 			<ul>
 				<!--change below code to specific conversation-->
-				<li ng-repeat="message in messages track by $index">
-					yelaabelly{{}}
+				<li ng-repeat="message in arrOfConvos[$index][0].messages">
+					{{message.text}}
 				</li>
 			</ul>
 			<form ng-submit="submitMessage(arrOfConvos[$index])">
 				<input type="text" placeholder="message text" ng-model="newMessage">
-				<!--                                             THIS MESSAGE IS INSIDE OF MESSAGE WHICH IS INSIDE OF MESSAGES WHICH DOESN'T EXIST SO IT IS NOT BEING PUT O SCOPE!! SO CHANGE IT BREH'  -->
+				<!--  THIS MESSAGE IS INSIDE OF MESSAGE WHICH IS INSIDE OF MESSAGES WHICH DOESN'T EXIST SO IT IS NOT BEING PUT O SCOPE!! SO CHANGE IT BREH'  -->
 				<button>Submit</button>
 			</form>
 		</div>
