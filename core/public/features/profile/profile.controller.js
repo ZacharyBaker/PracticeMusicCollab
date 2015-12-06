@@ -51,11 +51,11 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
-	$scope.submitMessage = function(specificConvo){
+	$scope.submitMessage = function(specificConvo, newMessage){
 		
 		var messageObj = {
 			sender: profileInfo._id,
-			text : $scope.newMessage
+			text : newMessage
 		}
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function(response){
