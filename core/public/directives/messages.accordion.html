@@ -1,10 +1,13 @@
-<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s11 m8 l4">
+<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s11 m8 l4 container">
 
 	<h3>HERE ARE YOUR CONVERSATIONS</h3>
 	<!--code below should be convo in conversations CHANGE IT WHEN YOU GET IT FIGURED OUT-->
 	<li ng-repeat="convo in arrOfConvos">
-		<div ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header">{{convo[0].participants[0].username === profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
-			<span ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span>
+		<div ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header notificationParent">
+		<span class="newNotification" ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span>
+		
+			{{convo[0].participants[0].username === profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
+
 		</div>
 
 		<div class="collapsible-body chattyBox">

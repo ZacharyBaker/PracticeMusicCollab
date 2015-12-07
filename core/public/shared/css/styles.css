@@ -83,6 +83,12 @@
 	overflow-y: scroll;
 }
 
+.notificationParent {
+	position: relative;
+}
+.newNotification {
+	position: relative;
+}
 
 
 
