@@ -1,22 +1,30 @@
 <ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel col s11 m8 l4">
 
 	<h3>HERE ARE YOUR CONVERSATIONS</h3>
-<!--code below should be convo in conversations CHANGE IT WHEN YOU GET IT FIGURED OUT-->
+	<!--code below should be convo in conversations CHANGE IT WHEN YOU GET IT FIGURED OUT-->
 	<li ng-repeat="convo in arrOfConvos">
 		<div ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header">{{convo[0].participants[0].username === profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
 			<span ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span>
 		</div>
-		<div class="collapsible-body">
-			<ul>
-				<!--change below code to specific conversation-->
-				<li ng-repeat="message in arrOfConvos[$index][0].messages">
-					{{message.text}}
-				</li>
-			</ul>
-			<form ng-submit="submitMessage(arrOfConvos[$index], newMessage)">
-				<input type="text" placeholder="message text" ng-model="newMessage">
-				<button>Submit</button>
-			</form>
+
+		<div class="collapsible-body chattyBox">
+
+			<div class="contentBox">
+				<form ng-submit="submitMessage(arrOfConvos[$index], newMessage)">
+					<input type="text" placeholder="message text" ng-model="newMessage">
+					<button>Submit</button>
+				</form>
+				<ul>
+					<!--change below code to specific conversation-->
+					<li ng-repeat="message in arrOfConvos[$index][0].messages | reverse">
+						{{message.text}}
+					</li>
+				</ul>
+
+			</div>
 		</div>
+
+
+
 	</li>
 </ul>

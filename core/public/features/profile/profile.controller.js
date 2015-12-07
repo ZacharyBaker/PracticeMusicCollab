@@ -3,10 +3,10 @@ var musicApp = angular.module('musicApp');
 musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', 'socket', 'oGValueForSpecificConvo', profileCtrl]);
 
 function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, socket, oGValueForSpecificConvo) {
-	
-	$scope.specificConvo = oGValueForSpecificConvo;
-	
 
+	$scope.specificConvo = oGValueForSpecificConvo;
+
+	
 	
 	// console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
@@ -108,11 +108,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	socket.on('messageFromServer', function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 		
-		// $scope.getClass = function () {
-		// 	return {
-		// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
-		// 	}
-		// }
+		
 
 		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
 			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
@@ -129,27 +125,27 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 					$scope.arrOfConvos[i][0].new = true;
 				}
 			}
-		}	
-			
+		}
 		$scope.$apply();
 
+
 	})
-		// 	$scope.getClass = function () {
-		// 	return {
-		// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
-		// 	}
-		// }
-		// if ($scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id) {
-		// 	$scope.arrOfConvos[i][0].addClass('new badge');
-		// }
+	// 	$scope.getClass = function () {
+	// 	return {
+	// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
+	// 	}
+	// }
+	// if ($scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id) {
+	// 	$scope.arrOfConvos[i][0].addClass('new badge');
+	// }
 		
 		
-		//$scope.newAlert
-		// if (messageObjFromServer.convo._id !== $scope.specificConvo._id)
-		//i'm confused! i dont know if i'm on the right track!
+	//$scope.newAlert
+	// if (messageObjFromServer.convo._id !== $scope.specificConvo._id)
+	//i'm confused! i dont know if i'm on the right track!
 		
 		
-		// $scope.messages.push(messageObjFromServer);//this is where it gets hairy
+	// $scope.messages.push(messageObjFromServer);//this is where it gets hairy
 	//---------------------------------------------------------------------------
 	
 	

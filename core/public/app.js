@@ -2,6 +2,12 @@ angular.module('musicApp', ['ui.router'])
 
 .constant('socket', io.connect())
 
+.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+})
+
 .config(['$stateProvider', '$urlRouterProvider', routing]);
 
 

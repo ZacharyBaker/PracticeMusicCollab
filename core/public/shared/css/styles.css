@@ -78,7 +78,10 @@
 	padding-bottom: 10px;
 }
 
-
+.chattyBox {
+	max-height: 300px;
+	overflow-y: scroll;
+}
 
 
 
