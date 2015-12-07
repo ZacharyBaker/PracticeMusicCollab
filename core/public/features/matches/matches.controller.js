@@ -30,6 +30,13 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 		matchesService.addIdToUserImInterested($scope.profileInfo._id, $scope.potentialCollaborator._id);
 		//adds profile/user's id to potential collaborator's property interestedInMe [] array
 		matchesService.addIdToCollaboratorInterestedInMe($scope.potentialCollaborator._id, $scope.profileInfo._id);
+		//WHAT KIND OF TOAST DO WE WANT??
+		if (profileInfo.interestedInMe.indexOf(potentialCollaborator._id) !== -1){
+			$scope.toast = Materialize.toast('Matched!', 5000);
+		} else {
+			$scope.toast = Materialize.toast('Awesome!', 3000)
+		}
+		
 		//reroutes to next potential collaborator
 		$scope.goToNextPotentialCollaborator();
 	}
@@ -39,9 +46,10 @@ function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService,
 		matchesService.addToUserNotInterested($scope.profileInfo._id, $scope.potentialCollaborator._id);
 		// reroutes to next potential collaborator
 		$scope.goToNextPotentialCollaborator();
+		$scope.toast = Materialize.toast('No Thanks!', 2000);
 	}
 	
-	
+	// $scope.literalydfkdf = Materialize.toast('BOOTY', 3000);
 	
 	
 	

@@ -52,7 +52,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
 	$scope.submitMessage = function (specificConvo, newMessage) {
-		
+
 		var messageObj = {
 			sender: profileInfo._id,
 			receiver: $scope.personImTalkingTo._id,
@@ -61,11 +61,12 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		}
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function (response) {
-
-				//depending on what we get back will determine what we do
+				$scope.newMessage = '';
+				
 			})
 
 		socket.emit('message', messageObj);
+
 	}
 
 	$scope.findPersonImTalkingTo = function (specificConvo) {
@@ -102,14 +103,14 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 			}
 		}
-		if ((!$('#skittles').hasClass("active"))){
-			
+		if ((!$('#' + $scope.specificConvo._id).hasClass("active"))) {
+
 			$scope.specificConvo = {
 				_id: 0
 			}
-			
+
 		}
-		
+
 		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
 			//change a property on someone
 			for (var i = 0; i < $scope.arrOfConvos.length; i++) {
