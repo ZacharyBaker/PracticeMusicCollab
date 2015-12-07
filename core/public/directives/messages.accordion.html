@@ -19,7 +19,7 @@
 				</form>
 				<ul>
 					<!--change below code to specific conversation-->
-					<li ng-repeat="message in arrOfConvos[$index][0].messages | reverse">
+					<li ng-class="{'right': message.sender === profileInfo._id}" class="messageAlignment" ng-repeat="message in arrOfConvos[$index][0].messages | reverse">
 						{{message.text}}
 					</li>
 				</ul>

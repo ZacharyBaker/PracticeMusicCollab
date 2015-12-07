@@ -52,9 +52,10 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
 	$scope.submitMessage = function (specificConvo, newMessage) {
-
+		
 		var messageObj = {
 			sender: profileInfo._id,
+			receiver: $scope.personImTalkingTo._id,
 			convo: specificConvo[0],
 			text: profileInfo.username + ': ' + newMessage
 		}
@@ -66,7 +67,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 		socket.emit('message', messageObj);
 	}
-	//STRAIGHT UP WITCHCRAFT
+
 	$scope.findPersonImTalkingTo = function (specificConvo) {
 		// console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];
@@ -89,7 +90,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	
 	// socket listener------------------
-	socket.on('messageFromServer', function (messageObjFromServer) {
+	socket.on(profileInfo._id, function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 		
 		
