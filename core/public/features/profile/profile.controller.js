@@ -52,7 +52,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
 	$scope.submitMessage = function (specificConvo, newMessage) {
-		
+
 		var messageObj = {
 			sender: profileInfo._id,
 			convo: specificConvo[0],
@@ -63,12 +63,12 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 				//depending on what we get back will determine what we do
 			})
-			
+
 		socket.emit('message', messageObj);
 	}
 	//STRAIGHT UP WITCHCRAFT
 	$scope.findPersonImTalkingTo = function (specificConvo) {
-		// console.log('specificConvo', specificConvo[0]);
+		console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];
 		// console.log('digging deeper', specificConvo[0].participants[0].username);
 		if (specificConvo[0].participants[0].username === profileInfo.username) {
@@ -98,20 +98,57 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		
 		
 	// };
+	
+	
+	
 	// socket listener------------------
 	socket.on('messageFromServer', function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 		
-		for (var i = 0; i < $scope.arrOfConvos.length; i++){
-			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id){
+		// $scope.getClass = function () {
+		// 	return {
+		// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
+		// 	}
+		// }
+
+		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+				// $scope.arrOfConvos[i][0].new = true;
 				$scope.arrOfConvos[i][0].messages.push(messageObjFromServer);
+
 			}
 		}
-		
-		// $scope.messages.push(messageObjFromServer);//this is where it gets hairy
+
+		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
+			//change a property on someone
+			for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+				if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+					$scope.arrOfConvos[i][0].new = true;
+				}
+			}
+		}	
+			
 		$scope.$apply();
 
 	})
+		// 	$scope.getClass = function () {
+		// 	return {
+		// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
+		// 	}
+		// }
+		// if ($scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id) {
+		// 	$scope.arrOfConvos[i][0].addClass('new badge');
+		// }
+		
+		
+		//$scope.newAlert
+		// if (messageObjFromServer.convo._id !== $scope.specificConvo._id)
+		//i'm confused! i dont know if i'm on the right track!
+		
+		
+		// $scope.messages.push(messageObjFromServer);//this is where it gets hairy
 	//---------------------------------------------------------------------------
-
+	
+	
+	
 }

@@ -3,7 +3,9 @@
 	<h3>HERE ARE YOUR CONVERSATIONS</h3>
 <!--code below should be convo in conversations CHANGE IT WHEN YOU GET IT FIGURED OUT-->
 	<li ng-repeat="convo in arrOfConvos">
-		<div ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header">{{convo[0].participants[0].username === profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}</div>
+		<div ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header">{{convo[0].participants[0].username === profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
+			<span ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span>
+		</div>
 		<div class="collapsible-body">
 			<ul>
 				<!--change below code to specific conversation-->
