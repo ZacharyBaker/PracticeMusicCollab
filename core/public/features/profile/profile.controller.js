@@ -68,8 +68,11 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 	//STRAIGHT UP WITCHCRAFT
 	$scope.findPersonImTalkingTo = function (specificConvo) {
-		console.log('specificConvo', specificConvo[0]);
+		// console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];
+		//CHANGE THE OBJ SO IT DOESNT SHOW NOTIFICATION
+		$scope.specificConvo.new = false;
+		//-------------
 		// console.log('digging deeper', specificConvo[0].participants[0].username);
 		if (specificConvo[0].participants[0].username === profileInfo.username) {
 			$scope.personImTalkingTo = specificConvo[0].participants[1];
