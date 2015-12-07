@@ -33,6 +33,11 @@ function routing($stateProvider, $urlRouterProvider) {
 				deckOfUsers: function($stateParams, matchesService){
 					// console.log('this is _id', $stateParams._id);
 					return matchesService.getDeckOfUsers($stateParams._id);
+				},
+				oGValueForSpecificConvo: function(){
+					return {
+						_id: 0
+					}
 				}
 			}
 		})

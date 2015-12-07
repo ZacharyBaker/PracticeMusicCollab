@@ -1,10 +1,10 @@
 var musicApp = angular.module('musicApp');
 
-musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', 'socket', profileCtrl]);
+musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUsers', 'profileService', 'socket', 'oGValueForSpecificConvo', profileCtrl]);
 
-function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, socket) {
+function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, socket, oGValueForSpecificConvo) {
 	
-
+	$scope.specificConvo = oGValueForSpecificConvo;
 	
 
 	
