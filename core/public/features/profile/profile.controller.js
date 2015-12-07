@@ -84,23 +84,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 	
 	
-	// socket testing ------------------------------------------
 	
-	// $scope.submitMessage = function (message) {
-	// 	var newMessage = {
-	// 		text: message,
-	// 		date: new Date()
-	// 	}
-		
-	//sockets-----------------------------
-	// socket.emit('message', newMessage);
-		
-	//make a call to the backend to post this message
-	//code here
-	//^^^^
-		
-		
-	// };
 	
 	
 	
@@ -117,7 +101,14 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 			}
 		}
-
+		if ((!$('#skittles').hasClass("active"))){
+			
+			$scope.specificConvo = {
+				_id: 0
+			}
+			
+		}
+		
 		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
 			//change a property on someone
 			for (var i = 0; i < $scope.arrOfConvos.length; i++) {
@@ -126,8 +117,9 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 				}
 			}
 		}
-		$scope.$apply();
 
+
+		$scope.$apply();
 
 	})
 	// 	$scope.getClass = function () {
