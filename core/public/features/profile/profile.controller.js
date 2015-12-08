@@ -66,14 +66,16 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		}
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function (response) {
-				$scope.newMessage = '';
-
+				// $scope.newMessage = '';
 			})
 
 		socket.emit('message', messageObj);
-
 	}
-
+	
+	$scope.$on('messagesubmitted', function(ev, convo, msg){
+		$scope.submitMessage(convo, msg);
+	})
+	
 	$scope.findPersonImTalkingTo = function (specificConvo) {
 		// console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];

@@ -12,8 +12,8 @@
 
 		<div class="collapsible-body chattyBox">
 
-			<div class="contentBox">
-				<form ng-submit="submitMessage(arrOfConvos[$index], newMessage)">
+			<div class="contentBox" submsg>
+				<form ng-submit="submit(arrOfConvos[$index], newMessage)">
 					<input type="text" placeholder="message text" ng-model="newMessage">
 					<button>Submit</button>
 				</form>

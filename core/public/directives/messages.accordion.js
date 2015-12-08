@@ -17,4 +17,15 @@ angular.module('musicApp')
 		};
 
 
-	});
+	})
+	.directive('submsg', function(){
+		return {
+			link: function(scope, ele, attrs){
+				scope.submit = function(convo, msg){
+					scope.newMessage = '';
+					scope.$emit('messagesubmitted', convo, msg);
+					
+				}
+			}
+		}
+	})
