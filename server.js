@@ -18,27 +18,47 @@ passport.use(new SoundCloudStrategy({
     clientID: keys.clientID,
     clientSecret: keys.clientSecret,
     callbackURL: "http://localhost:3000/auth/redirect"///what should i use here??
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // User.findOrCreate({ soundcloudId: profile.id }, function (err, user) {
-     //DATABASE OPERATIONS
-	 console.log(profile);
-	 
-	 
-	  // return done(err, user);
-    // });//what does this findOrCreate function do??
-  }
-));
+},
+	function (accessToken, refreshToken, profile, done) {
+		User.findOne({ 'soundcloud.id': profile.id }, function (err, user) {
+			//DATABASE OPERATIONS
+			console.log('THIS IS PROFILE._json', profile._json);
+			if (user) {
+				console.log('SoundCloud user found in database: ', user);
+				return done(err, user);
+			} else {
+				console.log('SoundCloud user not found!');
+				var scInfo = profile._json;
+				user = new User;
+				user.username = scInfo.username;
+				user.profPic = scInfo.avatar_url;
+				user.soundcloud = scInfo;
+				user.save();
+                done(null, user);
+			}
+
+		});
+	}
+	));
+passport.serializeUser(function (user, done) {
+	done(null, user);
+});
+
+passport.deserializeUser(function (obj, done) {
+	done(null, obj);
+});
 
 app.get('/auth/soundcloud',
-  passport.authenticate('soundcloud'));
+	passport.authenticate('soundcloud'));
 
-app.get('/auth/redirect', 
-  passport.authenticate('soundcloud', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');//THIS NEEDS TO BE CHANGED TO REDIRECT TO PROFILE PAGE OR SOMETHING ELSE
-  });
+app.get('/auth/redirect',
+	passport.authenticate('soundcloud', { failureRedirect: '/' }),
+	function (req, res) {
+		console.log('req.USERRRRR', req.user);
+		
+		// Successful authentication, redirect home.
+		res.redirect('/#/profile/' + req.user._id);
+	});
 
 
 
@@ -49,7 +69,7 @@ var socketio = require('socket.io');
 var io = socketio(http);
 io.on('connection', function (socket) {
 	console.log('a homie has connected via socketio');
-	socket.on('message', function(messageObj){
+	socket.on('message', function (messageObj) {
 		// console.log('server was just served message:'+ messageObj.text);
 		var myID = messageObj.sender;
 		var receiverID = messageObj.receiver;
