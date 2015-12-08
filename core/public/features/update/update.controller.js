@@ -3,7 +3,9 @@ var musicApp = angular.module('musicApp');
 musicApp.controller('updateCtrl', ['$scope', 'profileInfo', 'profileService', '$state', updateCtrl]);
 
 function updateCtrl($scope, profileInfo, profileService, $state){
-	
+	$(document).ready(function () {
+		$(".button-collapse").sideNav();
+	})
 
 	$scope.profileInfo = profileInfo;
 	$scope.goToProfile = function(id){

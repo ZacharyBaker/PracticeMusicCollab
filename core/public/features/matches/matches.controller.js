@@ -4,6 +4,10 @@ musicApp.controller('matchesCtrl', ['$scope','deckOfUsers', 'potentialCollaborat
 
 function matchesCtrl($scope, deckOfUsers, potentialCollaborator, matchesService, profileInfo, $state){
 	
+	$(document).ready(function () {
+		$(".button-collapse").sideNav();
+	})
+	
 	$scope.test = 'you dont have any matches, get some friends breh';
 	
 	$scope.deckOfUsers = deckOfUsers;

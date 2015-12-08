@@ -1,10 +1,10 @@
-<div class="profileContainer">
+<div class="profileContainer container">
 
 	<nav>
 		<div id="profileNav" class="nav-wrapper">
-			<a href="#!" class="profileTitle brand-logo">MUSICLAB</a>
+			<a href="#!" class="profileTitle brand-logo right">MUSICLAB</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			<ul class="right hide-on-med-and-down">
+			<ul class="left hide-on-med-and-down">
 				<li>
 					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
 				</li>
@@ -14,12 +14,12 @@
 
 
 			</ul>
-			<ul class="side-nav right" id="mobile-demo">
+			<ul class="side-nav right sideNav" id="mobile-demo">
 				<li>
 					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
 				</li>
 				<li>
-					<button class="btn-flat disabled" id="profileButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
+					<button class="btn-flat disabled sideNavButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
 				</li>
 
 
@@ -40,18 +40,9 @@
 
 
 
-
-
-
-
-
-
 			<img class="circle responsive-img" ng-src="{{profileInfo.profPic}}">
 			<br>
 			<p>{{profileInfo.bio}}</p>
-
-
-
 
 
 		</div>

@@ -45,6 +45,7 @@
 .profileTitle {
 	
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 
@@ -70,7 +71,7 @@
 	margin-top: 0px;
 }
 #profilePageProfileBox {
-	margin-left: 10px;
+	margin-left: 20px;
 	margin-top: 10px;
 }
 #matchingBox {
@@ -93,6 +94,19 @@
 	clear: both;
 }
 
+.sideNavButtons {
+	font-size: 20px;
+	white-space: nowrap;
+	background-color: #34495e;
+	
+}
+
+.sideNav {
+	background-color: #34495e;
+	max-height: 130px;
+	
+}
+
 
 /*loginpage*/
 
@@ -100,3 +114,10 @@
 	margin-top: 20px;
 }
 
+/*matching*/
+
+.sideNavMatch {
+	background-color: #34495e;
+	max-width: 170px;
+	max-height: 1px;
+}

@@ -4,6 +4,11 @@ musicApp.controller('profileCtrl', ['$scope', 'profileInfo', '$state', 'deckOfUs
 
 function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, socket, oGValueForSpecificConvo) {
 
+	$(document).ready(function () {
+		$(".button-collapse").sideNav();
+		// $(".dropdown-button").dropdown();
+	})
+
 	$scope.specificConvo = oGValueForSpecificConvo;
 
 	
@@ -62,7 +67,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function (response) {
 				$scope.newMessage = '';
-				
+
 			})
 
 		socket.emit('message', messageObj);

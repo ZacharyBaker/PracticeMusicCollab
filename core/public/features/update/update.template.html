@@ -3,9 +3,9 @@
 
 	<nav>
 		<div id="profileNav" class="nav-wrapper">
-			<a href="#!" class="profileTitle brand-logo">MUSICLAB</a>
+			<a href="#!" class="profileTitle brand-logo right">MUSICLAB</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			<ul class="right hide-on-med-and-down">
+			<ul class="left hide-on-med-and-down">
 				
 				<li>
 					<button class="btn-flat disabled" id="profileButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
@@ -13,14 +13,11 @@
 
 
 			</ul>
-			<ul class="side-nav right" id="mobile-demo">
+			<ul class="side-nav right sideNavMatch" id="mobile-demo">
+				
 				<li>
-					<button class="btn-flat disabled" id="profileButtons" ng-click="goToMatchesPage(profileInfo._id)">Matching</button>
+					<button class="btn-flat disabled sideNavButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
 				</li>
-				<li>
-					<button class="btn-flat disabled" id="profileButtons" ng-click="goToUpdatePage(profileInfo._id)">Update Profile</button>
-				</li>
-
 
 			</ul>
 		</div>
