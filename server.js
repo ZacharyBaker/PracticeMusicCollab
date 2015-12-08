@@ -54,7 +54,7 @@ app.get('/auth/soundcloud',
 app.get('/auth/redirect',
 	passport.authenticate('soundcloud', { failureRedirect: '/' }),
 	function (req, res) {
-		console.log('req.USERRRRR', req.user);
+		// console.log('req.USERRRRR', req.user);
 		
 		// Successful authentication, redirect home.
 		res.redirect('/#/profile/' + req.user._id);
