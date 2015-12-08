@@ -98,8 +98,6 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	// socket listener------------------
 	socket.on(profileInfo._id, function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
-		
-		
 
 		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
 			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
@@ -113,7 +111,6 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			$scope.specificConvo = {
 				_id: 0
 			}
-
 		}
 
 		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
@@ -125,28 +122,8 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			}
 		}
 
-
 		$scope.$apply();
-
 	})
-	// 	$scope.getClass = function () {
-	// 	return {
-	// 		newNotification: $scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id
-	// 	}
-	// }
-	// if ($scope.specificConvo._id !== messageObjFromServer.convo._id && messageObjFromServer.convo._id === $scope.arrOfConvos[i][0]._id) {
-	// 	$scope.arrOfConvos[i][0].addClass('new badge');
-	// }
-		
-		
-	//$scope.newAlert
-	// if (messageObjFromServer.convo._id !== $scope.specificConvo._id)
-	//i'm confused! i dont know if i'm on the right track!
-		
-		
-	// $scope.messages.push(messageObjFromServer);//this is where it gets hairy
-	//---------------------------------------------------------------------------
-	
 	
 	
 }

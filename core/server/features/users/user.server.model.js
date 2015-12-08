@@ -31,7 +31,7 @@ var UserSchema = new Schema({
 		maxlength: 200
 	},
 	soundcloud: {
-		type: String
+		type: Object
 	},
 	notInterested: [{
 		type: String//this will be an id	
