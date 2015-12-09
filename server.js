@@ -8,7 +8,9 @@ var passport = require('passport'),
 	keys = require('./keys'),
 	User = require('./core/server/features/users/user.server.model');
 
-var port = 3000;
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var port = process.env.PORT || 3000;
 var app = express();
 ////////////SOUNDCLOUD//////////////////////
 app.use(passport.initialize());

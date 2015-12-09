@@ -5,7 +5,7 @@
 			<a href="#!" class="profileTitle brand-logo right">MUSICLAB</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="left hide-on-med-and-down">
-				
+
 				<li>
 					<button class="btn-flat disabled" id="profileButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
 				</li>
@@ -13,7 +13,7 @@
 
 			</ul>
 			<ul class="side-nav right sideNavMatch" id="mobile-demo">
-				
+
 				<li>
 					<button class="btn-flat disabled sideNavButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
 				</li>
@@ -22,20 +22,33 @@
 		</div>
 	</nav>
 
+	<div class="center card-panel">
+		<div>
 
+			<img ng-src="{{potentialCollaborator.profPic}}">
+			<div class="left">
+				<h3>{{potentialCollaborator.username}}</h3>
+				<button ng-click="wantsToCollab()">Collab?</button>
+				<button ng-click="noThanks()">OrNah?</button>
+				<br>
+				<div> {{potentialCollaborator.bio}}
 
-	<img ng-src="{{potentialCollaborator.profPic}}">
-	<h3>{{potentialCollaborator.username}}</h3> {{potentialCollaborator.bio}}
-	<button ng-click="wantsToCollab()">Collab?</button>
-	<button ng-click="noThanks()">OrNah?</button>
-
+					<div>
+						<br> Genre : {{potentialCollaborator.genre}}
+						<br> Instruments: {{potentialCollaborator.instruments}}
+						<br> SoundCloud: {{potentialCollaborator.soundcloud}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 </div>
 
-this is the potential collaborator {{potentialCollaborator.username}}
-<ul>
+<!--this is the potential collaborator {{potentialCollaborator.username}}-->
+<!--<ul>
 	<li ng-repeat="user in deckOfUsers">
 		{{user.username}}
 	</li>
-</ul>
+</ul>-->

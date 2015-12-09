@@ -41,7 +41,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
 			.then(function (response) {
 				$scope.arrOfConvos = response;
-				$state.$
+				$state.go($state.current, {}, {reload: true});
 				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
 			})
 	}
