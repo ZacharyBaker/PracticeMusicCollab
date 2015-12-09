@@ -22,23 +22,25 @@
 		</div>
 	</nav>
 
-	<div class="center card-panel">
+	<div class="center">
 		<div>
 
-			<img ng-src="{{potentialCollaborator.profPic}}">
-			<div class="left">
-				<h3>{{potentialCollaborator.username}}</h3>
-				<button ng-click="wantsToCollab()">Collab?</button>
-				<button ng-click="noThanks()">OrNah?</button>
-				<br>
-				<div> {{potentialCollaborator.bio}}
+			<img class="responsive-img card-panel right matchingBoxRight" ng-src="{{potentialCollaborator.profPic}}">
+			<div class="left card-panel matchingBoxLeft">
+				<h3 class="uppercase">{{potentialCollaborator.username}}</h3>
+				
 
-					<div>
+
+				<div class="matchingPageText">
+					
+						<div> {{potentialCollaborator.bio}}
 						<br> Genre : {{potentialCollaborator.genre}}
 						<br> Instruments: {{potentialCollaborator.instruments}}
 						<br> SoundCloud: {{potentialCollaborator.soundcloud}}
 					</div>
 				</div>
+				<button class="matchingButtons" ng-click="wantsToCollab()"><i class="material-icons">thumb_up</i>Collab?</button>
+				<button class="matchingButtons" ng-click="noThanks()">OrNah?<i class="material-icons">thumb_down</i></button>
 			</div>
 		</div>
 	</div>

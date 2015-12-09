@@ -23,9 +23,9 @@ var UserSchema = new Schema({
 	genre: {
 		type: String//MAKE THIS ENUM LATER SO THEY CAN JUST CHOOSE FROM A LIST
 	},// THAT MIGHT MAKE IT EASIER FOR SOMEONE TO SORT THROUGH PEOPLE THEY DON'T WANT
-	instruments: [{
+	instruments: {
 		type: String
-	}],
+	},
 	bio: {
 		type: String,
 		maxlength: 200

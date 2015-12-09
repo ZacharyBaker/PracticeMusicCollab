@@ -121,3 +121,31 @@
 	max-width: 170px;
 	max-height: 1px;
 }
+
+.matchingPageText {
+	text-align: left;
+	line-height: 40px;
+	/*padding-top: 40px;*/
+	font-family: 'Lato', sans-serif;
+	
+}
+.uppercase {
+	text-transform: uppercase;
+}
+
+.matchingButtons {
+	background-color: #FC750F;
+	color: white;
+	font-size: 20px;
+	border-radius: 10px;
+	margin: 30px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.matchingBoxLeft {
+	max-width: 45%;
+}
+.matchingBoxRight {
+	max-width: 45%;
+}
