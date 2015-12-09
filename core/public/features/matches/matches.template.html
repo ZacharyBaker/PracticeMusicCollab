@@ -33,4 +33,9 @@
 
 </div>
 
-this is the potential collaborator {{potentialCollaborator}}
+this is the potential collaborator {{potentialCollaborator.username}}
+<ul>
+	<li ng-repeat="user in deckOfUsers">
+		{{user.username}}
+	</li>
+</ul>

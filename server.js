@@ -69,6 +69,12 @@ var socketio = require('socket.io');
 var io = socketio(http);
 io.on('connection', function (socket) {
 	console.log('a homie has connected via socketio');
+	
+	socket.on('matched', function(id){
+		
+		io.sockets.emit('matched' + id, id);
+	})
+	
 	socket.on('message', function (messageObj) {
 		// console.log('server was just served message:'+ messageObj.text);
 		var myID = messageObj.sender;

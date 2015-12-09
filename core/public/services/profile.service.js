@@ -67,7 +67,7 @@ function profileService($q, $http) {
 
 		arrOfMatches.forEach(function (e) {
 			return $http.get('/api/conversations/' + profileInfo._id + '/' + e._id)
-				.then(function (response) {
+				.then(function (response) {//THIS FUNCTION ISN'T GETTING ANYTHINGG
 					var convo = response.data;
 					// var otherPerson;
 					// for(var participant in convo.participants) {
@@ -103,7 +103,6 @@ function profileService($q, $http) {
 	}
 	//SENDING MESSAGES TO THE BACK
 	this.sendMessage = function(messageObj, conversationID){
-		
 		return $http.post('/api/conversations/' + conversationID, messageObj)
 			.then(function(response){
 				console.log('response.data in the profservice after updating ish', response.data);

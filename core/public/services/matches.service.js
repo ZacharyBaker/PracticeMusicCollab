@@ -40,6 +40,8 @@ function matchesService($q, $http) {
 								}
 							})
 						}
+						
+						
 						if (userInfo.interestedInMe) {
 							userInfo.interestedInMe.forEach(function (e) {
 								for (var i = 0; i < arrOfUsers.length; i++) {
@@ -49,14 +51,12 @@ function matchesService($q, $http) {
 									}
 								}
 
-
-
 							})
 						}
-
 						arrOfUsers.forEach(function (e) {
-							orderedDeck.push(e);
+							orderedDeck.unshift(e);
 						})
+
 						//get rid of own profile in deck
 						for (var i = 0; i < orderedDeck.length; i++) {
 							if (userInfo._id === orderedDeck[i]._id) {

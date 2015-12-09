@@ -21,8 +21,7 @@ module.exports = {
 	
 	findConversation: function(req, res){
 		Conversation.find({participants: {$all : [req.params.userID, req.params.matchID]}})
-			// .where({participants: {$in: [req.params.userID]}})
-			// .where({participants: {$in: [req.params.matchID]}})
+			
 			.populate('participants')
 			.exec(function(err, response){
 				// console.log(response);

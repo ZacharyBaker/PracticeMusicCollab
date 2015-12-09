@@ -10,9 +10,9 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	})
 
 	$scope.specificConvo = oGValueForSpecificConvo;
-
-	
-	
+	// $scope.arrOfConvos = conversations;
+	// console.log('arrOfConvos!!!!!!!!!!!!!!', $scope.arrOfConvos);
+	// console.log('CONVERSATIONS', conversations);
 	// console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
 	$scope.deckOfUsers = deckOfUsers;
@@ -27,13 +27,24 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 	$scope.goToMatchesPage = function (id) {
 		$state.go('matches', {
-			_id: id,
-			matchID: $scope.deckOfUsers[0]._id
+			_id: id
+			// matchID: $scope.deckOfUsers[0]._id
 		})
 	}
 
 
 
+	$scope.findConversations = function () {
+
+
+
+		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
+			.then(function (response) {
+				$scope.arrOfConvos = response;
+				$state.$
+				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
+			})
+	}
 
 
 	$scope.findMatches = function () {
@@ -47,13 +58,6 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 	$scope.findMatches();
 
-	$scope.findConversations = function () {
-		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
-			.then(function (response) {
-				$scope.arrOfConvos = response;
-				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
-			})
-	}
 	
 	//WORKING ON INDIVIDUAL CONVERSATOIONS--------------------------
 	$scope.submitMessage = function (specificConvo, newMessage) {
@@ -71,11 +75,11 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 		socket.emit('message', messageObj);
 	}
-	
-	$scope.$on('messagesubmitted', function(ev, convo, msg){
+
+	$scope.$on('messagesubmitted', function (ev, convo, msg) {
 		$scope.submitMessage(convo, msg);
 	})
-	
+
 	$scope.findPersonImTalkingTo = function (specificConvo) {
 		// console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];
@@ -98,9 +102,18 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	
 	// socket listener------------------
+	socket.on('matched' + profileInfo._id, function (id) {
+		console.log('match fired', id);
+		$scope.findMatches();
+
+
+	})
+
 	socket.on(profileInfo._id, function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 
+		//HOW CAN I PUT ALL OF THIS CODE INSIDE OF A .THEN SO ARROFCONVOS IS ON SCOPE
+		
 		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
 			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
 				// $scope.arrOfConvos[i][0].new = true;
@@ -126,6 +139,6 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 		$scope.$apply();
 	})
-	
-	
+
+
 }
