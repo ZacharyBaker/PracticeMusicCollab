@@ -2,14 +2,16 @@
 	<ul id="matchingBox" data-collapsible="accordion" class="collapsible z-depth-5 card-panel right container col l12 m12 s12" style="margin: 0; padding-right: 0;">
 
 		<h5 class="chatBoxTitle">CONVERSATIONS</h5>
-		<!--code below should be convo in conversations CHANGE IT WHEN YOU GET IT FIGURED OUT-->
+		
+		<p ng-show="youDontHaveAnyMatches">You don't have any! Go collab with somone!</p>
+		
 		<li ng-repeat="convo in arrOfConvos">
 			<div id="{{convo[0]._id}}" ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header notificationParent">
 				<span class="newNotification" ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span> {{convo[0].participants[0].username
 				=== profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
 
 			</div>
-
+			
 			<div class="collapsible-body chattyBox">
 
 				<div class="contentBox" submsg>

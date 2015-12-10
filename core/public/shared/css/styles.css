@@ -126,6 +126,7 @@ html {
 .personalInfoProf {
 	max-width: 500px;
 	margin-right: 7px;
+
 }
 .directiveWrapper {
 	min-width: 350px;
@@ -189,9 +190,10 @@ html {
 	background-color: #EEEEEE;
 	
 }
-/*.matchingRightCol {
-	max-width: 400px;
-}*/
+.contentBox {
+	padding-left: 10px;
+	padding-right: 10px;
+}
 
 
 /*MEDIA QUERIES*/
