@@ -36,17 +36,19 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	$scope.youDontHaveAnyMatches = true;
 	$scope.findConversations = function () {
 
-
-
 		profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
 			.then(function (response) {
 				$scope.arrOfConvos = response;
-				console.log('arr of convos.length', $scope.arrOfConvos.length);
-				if ($scope.arrOfConvos.length !== 0){
+				console.log('arrOfCONOVS', $scope.arrOfConvos);
+				if ($scope.arrOfConvos.length !== 0) {
 					$scope.youDontHaveAnyMatches = false;
 				}
-				// $state.go($state.current, {}, {reload: true});
-				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
+				// $state.go($state.current, {}, {reload: true}); //how can i refresh or update the page?
+				
+					// $state.go('profile', {
+					// 	_id: $scope.profileInfo._id 
+					// });
+				
 			})
 	}
 
@@ -76,7 +78,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		}
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function (response) {
-				// $scope.newMessage = '';
+
 			})
 
 		socket.emit('message', messageObj);
@@ -109,41 +111,58 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	
 	// socket listener------------------
 	socket.on('matched' + profileInfo._id, function (id) {
-		console.log('match fired', id);
+		// console.log('match fired', id);
 		$scope.findMatches();
 
-
 	})
+
+	$scope.foo = 'bar';
+	console.log('controller refresh', $scope.foo);
 
 	socket.on(profileInfo._id, function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 
 		//HOW CAN I PUT ALL OF THIS CODE INSIDE OF A .THEN SO ARROFCONVOS IS ON SCOPE
 		
-		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
-			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
-				// $scope.arrOfConvos[i][0].new = true;
-				$scope.arrOfConvos[i][0].messages.push(messageObjFromServer);
+		console.log('foo', $scope.foo);
 
-			}
-		}
-		if ((!$('#' + $scope.specificConvo._id).hasClass("active"))) {
+		console.log('message', messageObjFromServer);
+		console.log('convos', $scope.arrOfConvos);
 
-			$scope.specificConvo = {
-				_id: 0
-			}
-		}
+		profileService.findMatches($scope.profileInfo)
+			.then(function (response) {
+				$scope.matchObjsArr = response;
+				profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
+					.then(function (data) {
+						$scope.arrOfConvos = data;
+						for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+							if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+								// $scope.arrOfConvos[i][0].new = true;
+								$scope.arrOfConvos[i][0].messages.push(messageObjFromServer);
 
-		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
-			//change a property on someone
-			for (var i = 0; i < $scope.arrOfConvos.length; i++) {
-				if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
-					$scope.arrOfConvos[i][0].new = true;
-				}
-			}
-		}
+							}
+						}
+						if ((!$('#' + $scope.specificConvo._id).hasClass("active"))) {
 
-		$scope.$apply();
+							$scope.specificConvo = {
+								_id: 0
+							}
+						}
+
+						if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
+							//change a property on someone
+							for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+								if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+									$scope.arrOfConvos[i][0].new = true;
+								}
+							}
+						}
+
+						$scope.$apply();
+					})
+			})
+
+
 	})
 
 

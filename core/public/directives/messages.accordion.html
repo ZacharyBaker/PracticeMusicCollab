@@ -7,25 +7,26 @@
 		
 		<li ng-repeat="convo in arrOfConvos">
 			<div id="{{convo[0]._id}}" ng-click="findPersonImTalkingTo(arrOfConvos[$index])" class="collapsible-header notificationParent">
-				<span class="newNotification" ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span> {{convo[0].participants[0].username
-				=== profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}
+				<span class="newNotification" ng-class="arrOfConvos[$index][0].new === true ? 'new badge' : ''"></span> <p class="left">{{convo[0].participants[0].username
+				=== profileInfo.username ? convo[0].participants[1].username : convo[0].participants[0].username}}</p>
 
 			</div>
 			
 			<div class="collapsible-body chattyBox">
-
+				<div class="chattyBox">
 				<div class="contentBox" submsg>
 					<form ng-submit="submit(arrOfConvos[$index], newMessage)">
 						<input type="text" placeholder="message text" ng-model="newMessage">
-						<button>Submit</button>
+						<button class="left">Submit</button>
 					</form>
 					<ul>
 						<!--change below code to specific conversation-->
-						<li ng-class="{'right': message.sender === profileInfo._id}" class="messageAlignment" ng-repeat="message in arrOfConvos[$index][0].messages | reverse">
+						<li ng-class="{'right': message.sender === profileInfo._id}" class="messageAlignment left" ng-repeat="message in arrOfConvos[$index][0].messages | reverse">
 							{{message.text}}
 						</li>
 					</ul>
 
+				</div>
 				</div>
 			</div>
 

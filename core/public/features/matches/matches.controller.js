@@ -16,12 +16,12 @@ function matchesCtrl($scope, deckOfUsers, matchesService, profileInfo, $state, s
 
 	$scope.deckOfUsers = deckOfUsers;
 
-	console.log('before POP', $scope.deckOfUsers);
-	console.log('potential collaber', $scope.potentialCollaborator);
+	// console.log('before POP', $scope.deckOfUsers);
+	// console.log('potential collaber', $scope.potentialCollaborator);
 	$scope.potentialCollaborator = $scope.deckOfUsers.pop();
 
-	console.log('after POP', $scope.deckOfUsers);
-	console.log('potential collaber', $scope.potentialCollaborator);
+	// console.log('after POP', $scope.deckOfUsers);
+	// console.log('potential collaber', $scope.potentialCollaborator);
 
 
 	$scope.profileInfo = profileInfo;

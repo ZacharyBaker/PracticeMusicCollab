@@ -92,7 +92,7 @@ html {
 }
 
 .chattyBox {
-	max-height: 300px;
+	max-height: 250px;
 	overflow-y: scroll;
 }
 
@@ -184,6 +184,7 @@ html {
 .matchingBoxRight {
 	/*max-width: 45%;*/
 	padding-top: 10px;
+	max-height: 400px;
 }
 
 .matchesBackground {
@@ -221,5 +222,8 @@ html {
 	.matchingBoxLeft {
 		margin-right: 15px;
 		max-width: 45%;
+	}
+	.rightColProf {
+		margin-right: 30px;
 	}
 }
