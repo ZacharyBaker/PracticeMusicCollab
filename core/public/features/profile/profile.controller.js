@@ -33,7 +33,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	}
 
 
-	$scope.youDontHaveAnyMatches = false;
+	$scope.youDontHaveAnyMatches = true;
 	$scope.findConversations = function () {
 
 
@@ -42,8 +42,8 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			.then(function (response) {
 				$scope.arrOfConvos = response;
 				console.log('arr of convos.length', $scope.arrOfConvos.length);
-				if ($scope.arrOfConvos.length === 0){
-					$scope.youDontHaveAnyMatches = true;
+				if ($scope.arrOfConvos.length !== 0){
+					$scope.youDontHaveAnyMatches = false;
 				}
 				// $state.go($state.current, {}, {reload: true});
 				// console.log('$scope.arrOfConvos', $scope.arrOfConvos);
@@ -52,8 +52,10 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 
 	$scope.findMatches = function () {
+		console.log('this is trying to find matches');
 		profileService.findMatches($scope.profileInfo)
-			.then(function (response) {
+			.then(function (response, err) {
+
 				$scope.matchObjsArr = response;
 				// console.log(response);
 				//call findConversations in here!!!!!
