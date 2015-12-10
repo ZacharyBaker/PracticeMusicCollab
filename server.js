@@ -1,11 +1,12 @@
 var mongoose = require('mongoose'),
 	express = require('./core/server/config/express'),
-	mongoUri = 'mongodb://localhost:27017/MusiCollab';
+	// mongoUri = 'mongodb://localhost:27017/MusiCollab';
+	mongoUri = 'mongodb://zacharybaker:leadbyexample@ds027345.mongolab.com:27345/musiclab';
 //passport
 var passport = require('passport'),
 	session = require('express-session'),
 	SoundCloudStrategy = require('passport-soundcloud').Strategy,
-	keys = require('./keys'),
+	// keys = require('./keys'),
 	User = require('./core/server/features/users/user.server.model');
 
 
@@ -13,42 +14,42 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var port = process.env.PORT || 3000;
 var app = express();
 ////////////SOUNDCLOUD//////////////////////
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-passport.use(new SoundCloudStrategy({
-    clientID: keys.clientID,
-    clientSecret: keys.clientSecret,
-    callbackURL: "http://localhost:3000/auth/redirect"///what should i use here??
-},
-	function (accessToken, refreshToken, profile, done) {
-		User.findOne({ 'soundcloud.id': profile.id }, function (err, user) {
-			//DATABASE OPERATIONS
-			console.log('THIS IS PROFILE._json', profile._json);
-			if (user) {
-				console.log('SoundCloud user found in database: ', user);
-				return done(err, user);
-			} else {
-				console.log('SoundCloud user not found!');
-				var scInfo = profile._json;
-				user = new User;
-				user.username = scInfo.username;
-				user.profPic = scInfo.avatar_url;
-				user.soundcloud = scInfo;
-				user.save();
-                done(null, user);
-			}
+// passport.use(new SoundCloudStrategy({
+//     clientID: keys.clientID,
+//     clientSecret: keys.clientSecret,
+//     callbackURL: "http://localhost:3000/auth/redirect"///what should i use here??
+// },
+// 	function (accessToken, refreshToken, profile, done) {
+// 		User.findOne({ 'soundcloud.id': profile.id }, function (err, user) {
+// 			//DATABASE OPERATIONS
+// 			console.log('THIS IS PROFILE._json', profile._json);
+// 			if (user) {
+// 				console.log('SoundCloud user found in database: ', user);
+// 				return done(err, user);
+// 			} else {
+// 				console.log('SoundCloud user not found!');
+// 				var scInfo = profile._json;
+// 				user = new User;
+// 				user.username = scInfo.username;
+// 				user.profPic = scInfo.avatar_url;
+// 				user.soundcloud = scInfo;
+// 				user.save();
+//                 done(null, user);
+// 			}
 
-		});
-	}
-	));
-passport.serializeUser(function (user, done) {
-	done(null, user);
-});
+// 		});
+// 	}
+// 	));
+// passport.serializeUser(function (user, done) {
+// 	done(null, user);
+// });
 
-passport.deserializeUser(function (obj, done) {
-	done(null, obj);
-});
+// passport.deserializeUser(function (obj, done) {
+// 	done(null, obj);
+// });
 
 app.get('/auth/soundcloud',
 	passport.authenticate('soundcloud'));
