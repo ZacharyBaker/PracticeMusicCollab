@@ -1,4 +1,4 @@
-<div class="updateContainer container">
+<div class="updateContainer">
 
 
 	<nav>
@@ -6,7 +6,7 @@
 			<a href="#!" class="profileTitle brand-logo right">MUSICLAB</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="left hide-on-med-and-down">
-				
+
 				<li>
 					<button class="btn-flat disabled" id="profileButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
 				</li>
@@ -14,7 +14,7 @@
 
 			</ul>
 			<ul class="side-nav right sideNavMatch" id="mobile-demo">
-				
+
 				<li>
 					<button class="btn-flat disabled sideNavButtons" ng-click="goToProfile(profileInfo._id)">Profile</button>
 				</li>
@@ -23,28 +23,32 @@
 		</div>
 	</nav>
 
+	<div class="container">
+		<form class="updater" ng-submit="updateUser(profileInfo)">
+			Username:
+			<input type="text" ng-model="profileInfo.username">
+			<br> Email:
+			<input type="text" ng-model="profileInfo.email">
+			<br> Password:
+			<input type="text" ng-model="profileInfo.password">
+			<br> Profile Picture:
+			<input type="text" ng-model="profileInfo.profPic">
+			<br> Genres:
+			<input type="text" ng-model="profileInfo.genre">
+			<br> Instruments:
+			<input type="text" ng-model="profileInfo.instruments">
+			<br> SoundCloud:
+			<input type="text" ng-model="profileInfo.soundcloud">
+			<br> Bio:
+			<br>
+			<textarea name="" cols="30" rows="6" maxlength="200" ng-model="profileInfo.bio"></textarea>
 
-	<form class="updater" ng-submit="updateUser(profileInfo)">
-		Username:
-		<input type="text" ng-model="profileInfo.username">
-		<br> Email:
-		<input type="text" ng-model="profileInfo.email">
-		<br> Password:
-		<input type="text" ng-model="profileInfo.password">
-		<br> Profile Picture:
-		<input type="text" ng-model="profileInfo.profPic">
-		<br> Genres:
-		<input type="text" ng-model="profileInfo.genre">
-		<br> Instruments:
-		<input type="text" ng-model="profileInfo.instruments">
-		<br> SoundCloud:
-		<input type="text" ng-model="profileInfo.soundcloud">
-		<br> Bio:
-		<br>
-		<textarea name="" cols="30" rows="6" maxlength="200" ng-model="profileInfo.bio"></textarea>
 
-
-		<button onclick="Materialize.toast('Updated!', 3000, 'rounded')">Submit Changes</button>
-	</form>
-
+			<button onclick="Materialize.toast('Updated!', 3000, 'rounded')">Submit Changes</button>
+		</form>
+		<pre>
+			
+			
+		</pre>
+	</div>
 </div>

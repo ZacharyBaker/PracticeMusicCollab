@@ -67,8 +67,9 @@ html {
 }
 #matchingBox {
 	background-color: white;
-	margin-left: 30px;
-	padding-
+	margin: 0;
+	padding-left: 0px;
+	
 }
 
 .A {
@@ -86,7 +87,7 @@ html {
 	margin-top: 10px;
 	margin-left: 20px;
 	margin-right: 20px;
-	padding-bottom: 10px;
+	/*padding-bottom: 10px;*/
 	/*max-width: 49%;*/
 }
 
@@ -119,11 +120,23 @@ html {
 }
 
 .chatBoxTitle {
-	margin-top: 0px;
+	margin-top: 10px;
 }
 
 .personalInfoProf {
 	max-width: 500px;
+	margin-right: 7px;
+}
+.directiveWrapper {
+	min-width: 350px;
+	 max-width: 500px;
+	 margin-top: 7px;
+	 margin-left: 7px;
+}
+.rightColProf {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 
@@ -188,8 +201,6 @@ html {
 
 @media only screen and (max-width: 993px){
 	
-	.rightColProf {
-		float: left;
-	}
+	
 	
 }
