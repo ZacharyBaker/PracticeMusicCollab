@@ -30,23 +30,39 @@
 
 
 
-	<div class="row">
-		<div id="profilePageProfileBox" class="z-depth-5 card-panel col s12 m9 l7 A">
+	<div class="center">
+
+		<div class="row">
+			<div id="profilePageProfileBox" class="center-align left z-depth-5 card-panel col s11 m11 l6 A">
 
 
 
-			<h1>{{profileInfo.username}}</h1>
+				<h1 class="profileNameText">{{profileInfo.username}}</h1>
 
 
 
 
-			<img class="circle responsive-img" ng-src="{{profileInfo.profPic}}">
-			<br>
-			<p>{{profileInfo.bio}}</p>
+				<img class="circle responsive-img" ng-src="{{profileInfo.profPic}}">
+				<br>
+				<p>{{profileInfo.bio}}</p>
+			</div>
+			<div class="rightColProf right col s11 m12 l5 row">
+				<div class="card-panel personalInfoProf left col l12">
 
+					<h4>Your Info:</h4>
+					<br>
+					<div class="left-align flow-text">
+						Bio: {{profileInfo.bio}}
+						<br> Genre: {{profileInfo.genre}}
+						<br> Intruments: {{profileInfo.instruments}}
+						<br> SoundCloud: {{profileInfo.soundcloud}}
+						<br>
+					</div>
+				</div>
+				<messagesaccordion></messagesaccordion>
 
+			</div>
 		</div>
-		<messagesaccordion></messagesaccordion>
 
 	</div>
 

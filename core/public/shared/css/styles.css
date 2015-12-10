@@ -68,6 +68,7 @@ html {
 #matchingBox {
 	background-color: white;
 	margin-left: 30px;
+	padding-
 }
 
 .A {
@@ -77,12 +78,16 @@ html {
 	margin-top: 0px;
 }
 #profilePageProfileBox {
-	margin-left: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 	margin-top: 10px;
 }
 #matchingBox {
 	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 	padding-bottom: 10px;
+	/*max-width: 49%;*/
 }
 
 .chattyBox {
@@ -112,6 +117,15 @@ html {
 	max-height: 130px;
 	
 }
+
+.chatBoxTitle {
+	margin-top: 0px;
+}
+
+.personalInfoProf {
+	max-width: 500px;
+}
+
 
 
 /*loginpage*/
@@ -166,6 +180,16 @@ html {
 
 /*MEDIA QUERIES*/
 
-/*@media only screen and (max-width: ){
+@media only screen and (max-width: 460px){
+	.profileNameText {
+	font-size: 30px;
+	}
+}
+
+@media only screen and (max-width: 993px){
 	
-}*/
+	.rightColProf {
+		float: left;
+	}
+	
+}
