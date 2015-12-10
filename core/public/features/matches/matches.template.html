@@ -1,4 +1,4 @@
-<div class="matchesContainer container">
+<div class="matchesContainer">
 
 	<nav>
 		<div id="profileNav" class="nav-wrapper">
@@ -22,12 +22,13 @@
 		</div>
 	</nav>
 
-	<div class="center">
-		<div>
-
-			<img class="responsive-img card-panel right matchingBoxRight valign" ng-src="{{potentialCollaborator.profPic}}">
-			<div class="left card-panel matchingBoxLeft valign">
-				<h3 class="uppercase">{{potentialCollaborator.username}}</h3>
+	<div class="center container">
+		<div class="matchesBackground row">
+			<div class="col l6 m6 s12 right card-panel">
+			<img class="responsive-img  matchingBoxRight" ng-src="{{potentialCollaborator.profPic}}">
+			</div>
+			<div class="col l6 m6 s12 card-panel matchingBoxLeft valign">
+				<h5 class="uppercase">{{potentialCollaborator.username}}</h5>
 				
 
 

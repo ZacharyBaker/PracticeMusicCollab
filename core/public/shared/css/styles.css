@@ -1,6 +1,12 @@
 * {
 	margin: 0;
+
 }
+
+html {
+	background: #EEEEEE;
+}
+
 /*LOGIN PAGE*/
 .loginContainer, .profileContainer, .updateContainer, .matchesContainer {
 	font-family: 'Lato', sans-serif;
@@ -145,11 +151,18 @@
 }
 
 .matchingBoxLeft {
-	max-width: 45%;
+	/*max-width: 45%;*/
 }
 .matchingBoxRight {
-	max-width: 45%;
+	/*max-width: 45%;*/
+	padding-top: 10px;
 }
+
+.matchesBackground {
+	background-color: #EEEEEE;
+	
+}
+
 
 /*MEDIA QUERIES*/
 
