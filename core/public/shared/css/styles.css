@@ -189,6 +189,9 @@ html {
 	background-color: #EEEEEE;
 	
 }
+/*.matchingRightCol {
+	max-width: 400px;
+}*/
 
 
 /*MEDIA QUERIES*/
@@ -199,8 +202,22 @@ html {
 	}
 }
 
-@media only screen and (max-width: 993px){
+@media only screen and (max-width: 400px){
 	
-	
-	
+	.directiveWrapper {
+		margin-right: 45px;
+	}
+	.personalInfoProf {
+		margin-right: 45px;
+	}
+}
+
+@media only screen and (min-width: 600px){
+	.matchingRightCol {
+		margin-left: 15px;
+	}
+	.matchingBoxLeft {
+		margin-right: 15px;
+		max-width: 45%;
+	}
 }
