@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 	express = require('./core/server/config/express'),
 	// mongoUri = 'mongodb://localhost:27017/MusiCollab';
-	mongoUri = 'mongodb://zacharybaker:leadbyexample@ds027345.mongolab.com:27345/musiclab';
+	mongoUri = 'mongodb://zacharybaker:zacharybaker@ds027345.mongolab.com:27345/musiclab';
 //passport
 var passport = require('passport'),
 	session = require('express-session'),
@@ -51,17 +51,17 @@ var app = express();
 // 	done(null, obj);
 // });
 
-app.get('/auth/soundcloud',
-	passport.authenticate('soundcloud'));
+// app.get('/auth/soundcloud',
+// 	passport.authenticate('soundcloud'));
 
-app.get('/auth/redirect',
-	passport.authenticate('soundcloud', { failureRedirect: '/' }),
-	function (req, res) {
-		// console.log('req.USERRRRR', req.user);
+// app.get('/auth/redirect',
+// 	passport.authenticate('soundcloud', { failureRedirect: '/' }),
+// 	function (req, res) {
+// 		// console.log('req.USERRRRR', req.user);
 		
-		// Successful authentication, redirect home.
-		res.redirect('/#/profile/' + req.user._id);
-	});
+// 		// Successful authentication, redirect home.
+// 		res.redirect('/#/profile/' + req.user._id);
+// 	});
 
 
 
