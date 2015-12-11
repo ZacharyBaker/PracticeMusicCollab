@@ -197,6 +197,26 @@ html {
 }
 
 
+.individualMessages {
+
+	border-radius: 5px;
+
+
+	padding: 2px 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	background-color: #1E96FE;
+	color: white;
+}
+
+/*.myColorMessage {
+	
+}*/
+.senderColorMessage {
+	background-color: #E6E5EB;
+	color: black;
+}
+
 /*MEDIA QUERIES*/
 
 @media only screen and (max-width: 460px){

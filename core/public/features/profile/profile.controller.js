@@ -45,9 +45,9 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 				}
 				// $state.go($state.current, {}, {reload: true}); //how can i refresh or update the page?
 				
-					// $state.go('profile', {
-					// 	_id: $scope.profileInfo._id 
-					// });
+				// $state.go('profile', {
+				// 	_id: $scope.profileInfo._id 
+				// });
 				
 			})
 	}
@@ -74,7 +74,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 			sender: profileInfo._id,
 			receiver: $scope.personImTalkingTo._id,
 			convo: specificConvo[0],
-			text: profileInfo.username + ': ' + newMessage
+			text: newMessage
 		}
 		profileService.sendMessage(messageObj, specificConvo[0]._id)
 			.then(function (response) {
@@ -129,41 +129,41 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		console.log('message', messageObjFromServer);
 		console.log('convos', $scope.arrOfConvos);
 
-		profileService.findMatches($scope.profileInfo)
-			.then(function (response) {
-				$scope.matchObjsArr = response;
-				profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
-					.then(function (data) {
-						$scope.arrOfConvos = data;
-						for (var i = 0; i < $scope.arrOfConvos.length; i++) {
-							if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
-								// $scope.arrOfConvos[i][0].new = true;
-								$scope.arrOfConvos[i][0].messages.push(messageObjFromServer);
+		// profileService.findMatches($scope.profileInfo)
+		// .then(function (response) {
+		// $scope.matchObjsArr = response;
+		// profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
+		// .then(function (data) {
+		// $scope.arrOfConvos = data;
+		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+				// $scope.arrOfConvos[i][0].new = true;
+				$scope.arrOfConvos[i][0].messages.push(messageObjFromServer);
 
-							}
-						}
-						if ((!$('#' + $scope.specificConvo._id).hasClass("active"))) {
+			}
+		}
+		if ((!$('#' + $scope.specificConvo._id).hasClass("active"))) {
 
-							$scope.specificConvo = {
-								_id: 0
-							}
-						}
+			$scope.specificConvo = {
+				_id: 0
+			}
+		}
 
-						if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
-							//change a property on someone
-							for (var i = 0; i < $scope.arrOfConvos.length; i++) {
-								if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
-									$scope.arrOfConvos[i][0].new = true;
-								}
-							}
-						}
+		if ($scope.specificConvo._id !== messageObjFromServer.convo._id) {
+			//change a property on someone
+			for (var i = 0; i < $scope.arrOfConvos.length; i++) {
+				if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
+					$scope.arrOfConvos[i][0].new = true;
+				}
+			}
+		}
 
-						$scope.$apply();
-					})
-			})
-
-
+		$scope.$apply();
 	})
+	// })
+
+
+	// })
 
 
 }
