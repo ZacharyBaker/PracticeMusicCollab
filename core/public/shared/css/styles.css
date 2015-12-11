@@ -56,7 +56,8 @@ html {
 }
 
 .profilePictureSize {
-	max-height: 500px;
+	max-height: 400px;
+	min-height: 40px;
 }
 
 
@@ -75,6 +76,7 @@ html {
 	margin: 0;
 	padding-left: 0px;
 	/*width: 40px;*/
+	overflow-y: scroll;
 	
 }
 
@@ -88,6 +90,10 @@ html {
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 10px;
+	max-width: 720px;
+	/*max-height: 530px;
+	min-height: 530px;*/
+	height: 550px;
 }
 #matchingBox {
 	margin-top: 10px;
@@ -98,7 +104,7 @@ html {
 }
 
 .chattyBox {
-	max-height: 250px;
+	max-height: 125px;
 	overflow-y: scroll;
 }
 
@@ -196,6 +202,7 @@ html {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	max-height: 400px;
+	min-height: 300px;
 	/*margin-top: 30px;*/
 }
 
@@ -242,6 +249,10 @@ html {
 	.profileNameText {
 	font-size: 30px;
 	}
+	#profilePageProfileBox {
+		max-height: 400px;
+	}
+	
 }
 
 @media only screen and (max-width: 400px){
