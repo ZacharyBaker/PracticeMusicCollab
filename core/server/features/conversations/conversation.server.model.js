@@ -10,8 +10,8 @@ var ConversationSchema = new Schema ({
 		receiver: {type: String},
 		text: {type: String}
 	}]
-	
-	
+	//how can i fix notifications?
+	//
 })
 
 module.exports = mongoose.model('Conversation', ConversationSchema);
