@@ -21,20 +21,25 @@
 			</ul>
 		</div>
 	</nav>
+	
+	<div ng-show="noMoreUsers" class="card-panel">
+	<h2>You literally went through every user we had. No more matching for you!!!</h2>
+	</div>
+
 
 	<div class="center container">
 		<div class="matchesBackground row">
-			<div class="col l6 m6 s12 right card-panel matchingRightCol">
-			<img class="responsive-img  matchingBoxRight" ng-src="{{potentialCollaborator.profPic}}">
+			<div ng-hide="noMoreUsers" class="col l6 m6 s12 right card-panel matchingRightCol">
+				<img  class="responsive-img  matchingBoxRight" ng-src="{{potentialCollaborator.profPic}}">
 			</div>
-			<div class="col l6 m6 s12 card-panel matchingBoxLeft valign">
+			<div ng-hide="noMoreUsers" class="col l6 m6 s12 card-panel matchingBoxLeft valign">
 				<h5 class="uppercase">{{potentialCollaborator.username}}</h5>
-				
+
 
 
 				<div class="matchingPageText">
-					
-						<div> {{potentialCollaborator.bio}}
+
+					<div> {{potentialCollaborator.bio}}
 						<br> Genre : {{potentialCollaborator.genre}}
 						<br> Instruments: {{potentialCollaborator.instruments}}
 						<br> SoundCloud: {{potentialCollaborator.soundcloud}}
@@ -46,8 +51,33 @@
 			</div>
 		</div>
 	</div>
-
-
+	<!--FOOTER///////////////////////////////////-->
+	<!--<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>-->
+	<!--//////////////////////////////////////////////////////-->
 </div>
 
 <!--this is the potential collaborator {{potentialCollaborator.username}}-->

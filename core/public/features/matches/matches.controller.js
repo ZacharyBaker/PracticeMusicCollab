@@ -28,15 +28,19 @@ function matchesCtrl($scope, deckOfUsers, matchesService, profileInfo, $state, s
 
 
 	$scope.goToNextPotentialCollaborator = function () {
+		console.log('length of decOf users', $scope.deckOfUsers.length);
 		if ($scope.deckOfUsers.length > 0) {
 
 			$scope.potentialCollaborator = $scope.deckOfUsers.pop();
 
 
-		} 
+		} else if($scope.deckOfUsers.length === 0){
+			$scope.noMoreUsers = true;
+		}
 
 	}
 	
+	$scope.noMoreUsers = false;
 	
 	
 	//FIND A WAY TO CHECK IF WANTS TO COLLAB ALREADY!!
