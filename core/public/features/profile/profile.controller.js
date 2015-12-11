@@ -16,7 +16,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	// console.log(profileInfo);
 	$scope.profileInfo = profileInfo;
 	$scope.deckOfUsers = deckOfUsers;
-
+	$scope.arrOfConvos = [];
 
 	$scope.goToUpdatePage = function (id) {
 		// console.log('profile.controller, profileInfo._id',profileInfo._id);
@@ -159,6 +159,10 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 		}
 
 		$scope.$apply();
+	})
+	
+	$scope.$on('$destroy', function(){
+		socket.removeAllListeners();
 	})
 	// })
 

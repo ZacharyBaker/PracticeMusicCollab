@@ -209,13 +209,20 @@ html {
 	color: white;
 }
 
-/*.myColorMessage {
-	
-}*/
+
 .senderColorMessage {
 	background-color: #E6E5EB;
 	color: black;
 }
+
+.noMoreMatches {
+	margin-bottom: 100px;
+	padding-right: 50px;
+	padding-left: 50px;
+	text-align: center;
+}
+
+
 
 /*MEDIA QUERIES*/
 
@@ -267,5 +274,8 @@ html {
 		padding-right: 0px;
 		margin-top: 0px;
 		margin-right: 30px;
+	}
+	.preMatch {
+		display: none;
 	}
 }
