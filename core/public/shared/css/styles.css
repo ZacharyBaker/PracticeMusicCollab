@@ -187,12 +187,14 @@ html {
 .matchingButtons {
 	background-color: #FC750F;
 	color: white;
-	font-size: 20px;
+	font-size: 10px;
 	border-radius: 10px;
+	border: 0;
 	margin: 30px;
 	margin-left: 0px;
 	margin-right: 0px;
 	font-weight: bold;
+	width: 100px;
 }
 
 .matchingBoxLeft {
