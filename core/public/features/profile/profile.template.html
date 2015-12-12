@@ -1,8 +1,9 @@
 <div class="profileContainer">
-
+	<!--class="profileTitle brand-logo right" style="font-size: 40px;-->
 	<nav>
 		<div id="profileNav" class="nav-wrapper">
-			<a href="#!" class="profileTitle brand-logo right" style="font-size: 40px;">MUSICLAB</a>
+			
+			<a href="#!"> <img class="brand-logo newLogo right" src="./musiclablogo-01.png" alt=""> </a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="left hide-on-med-and-down">
 				<li>
@@ -29,7 +30,6 @@
 
 
 
-
 	<div class="center">
 
 		<div class="row">
@@ -43,14 +43,14 @@
 
 
 				<img class="circle responsive-img profilePictureSize" ng-src="{{profileInfo.profPic}}">
-				
+
 			</div>
 			<div class="rightColProf right col s11 m5 l5 row">
 				<div class="card-panel personalInfoProf left col l12 z-depth-3">
 
-					
+
 					<div class="left-align">
-						
+
 						<table>
 							<thead>
 								<tr>
@@ -62,21 +62,24 @@
 								<tr>
 									<td>Bio:</td>
 									<td>{{profileInfo.bio}}</td>
-								</tr><tr>
+								</tr>
+								<tr>
 									<td>Genre:</td>
 									<td>{{profileInfo.genre}}</td>
-								</tr><tr>
+								</tr>
+								<tr>
 									<td>Instruments:</td>
 									<td>{{profileInfo.instruments}}</td>
-								</tr><tr>
+								</tr>
+								<tr>
 									<td>SoundCloud:</td>
 									<td>{{profileInfo.soundcloud}}</td>
 								</tr>
 							</tbody>
-							
+
 						</table>
-						
-						
+
+
 					</div>
 				</div>
 				<messagesaccordion></messagesaccordion>
@@ -84,7 +87,7 @@
 		</div>
 
 	</div>
-<!--FOOTER///////////////////////////////////-->
+	<!--FOOTER///////////////////////////////////-->
 	<footer class="page-footer" style="background: #34495e;">
 		<div class="container">
 			<div class="row">
