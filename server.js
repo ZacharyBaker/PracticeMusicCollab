@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 	express = require('./core/server/config/express'),
 	// mongoUri = 'mongodb://localhost:27017/MusiCollab';
-	mongoUri = 'mongodb://zacharybaker:leadbyexample@ds027345.mongolab.com:27345/musiclab';
+	mongoUri = 'mongodb://<username>:<password>@ds027345.mongolab.com:27345/musiclab';
 //passport
 var passport = require('passport'),
 	session = require('express-session'),
