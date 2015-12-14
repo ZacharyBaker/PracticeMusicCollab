@@ -45,18 +45,7 @@ function routing($stateProvider, $urlRouterProvider) {
 						_id: 0
 					}
 				}
-				// conversations: function($stateParams, profileService){
-				// 	 profileService.getProfileInfo($stateParams._id).then(function(result){
-				// 		console.log('THIS IS RESULT',result); 
-						
-				// 		profileService.findMatches(result).then(function(response){
-				// 		console.log('THIS IS RESULT',result); 
-				// 		console.log('THIS IS response', response); 
-							
-				// 			return profileService.findConversations(result, response);
-				// 		})
-				// 	})
-				// }
+				
 			}
 		})
 		
@@ -82,10 +71,7 @@ function routing($stateProvider, $urlRouterProvider) {
 					console.log('this is _id', $stateParams._id);
 					return matchesService.getDeckOfUsers($stateParams._id);
 				},
-				// potentialCollaborator: function($stateParams, matchesService){
-				// 	console.log('this is matchID', $stateParams.matchID);
-				// 	return matchesService.getPotentialCollaboratorInfo($stateParams.matchID);
-				// },
+				
 				profileInfo: function($stateParams, profileService){
 					// console.log('this is _id', $stateParams._id);
 					return profileService.getProfileInfo($stateParams._id);

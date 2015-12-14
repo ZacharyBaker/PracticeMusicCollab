@@ -6,7 +6,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 	$(document).ready(function () {
 		$(".button-collapse").sideNav();
-		// $(".dropdown-button").dropdown();
+
 	})
 
 	$scope.specificConvo = oGValueForSpecificConvo;
@@ -60,7 +60,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 				$scope.matchObjsArr = response;
 				// console.log(response);
-				//call findConversations in here!!!!!
+
 				$scope.findConversations();
 			})
 	}
@@ -91,7 +91,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	$scope.findPersonImTalkingTo = function (specificConvo) {
 		// console.log('specificConvo', specificConvo[0]);
 		$scope.specificConvo = specificConvo[0];
-		//CHANGE THE OBJ SO IT DOESNT SHOW NOTIFICATION
+
 		$scope.specificConvo.new = false;
 		//-------------
 		// console.log('digging deeper', specificConvo[0].participants[0].username);
@@ -122,19 +122,14 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	socket.on(profileInfo._id, function (messageObjFromServer) {
 		// console.log('this is messageObjFromServer', messageObjFromServer);
 
-		//HOW CAN I PUT ALL OF THIS CODE INSIDE OF A .THEN SO ARROFCONVOS IS ON SCOPE
+		
 		
 		console.log('foo', $scope.foo);
 
 		console.log('message', messageObjFromServer);
 		console.log('convos', $scope.arrOfConvos);
 
-		// profileService.findMatches($scope.profileInfo)
-		// .then(function (response) {
-		// $scope.matchObjsArr = response;
-		// profileService.findConversations($scope.profileInfo, $scope.matchObjsArr)
-		// .then(function (data) {
-		// $scope.arrOfConvos = data;
+		
 		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
 			if ($scope.arrOfConvos[i][0]._id === messageObjFromServer.convo._id) {
 				// $scope.arrOfConvos[i][0].new = true;
@@ -164,10 +159,7 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 	$scope.$on('$destroy', function(){
 		socket.removeAllListeners();
 	})
-	// })
-
-
-	// })
+	
 
 
 }
