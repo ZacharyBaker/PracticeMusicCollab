@@ -124,10 +124,10 @@ function profileCtrl($scope, profileInfo, $state, deckOfUsers, profileService, s
 
 		
 		
-		console.log('foo', $scope.foo);
+		// console.log('foo', $scope.foo);
 
-		console.log('message', messageObjFromServer);
-		console.log('convos', $scope.arrOfConvos);
+		// console.log('message', messageObjFromServer);
+		// console.log('convos', $scope.arrOfConvos);
 
 		
 		for (var i = 0; i < $scope.arrOfConvos.length; i++) {
