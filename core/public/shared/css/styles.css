@@ -174,7 +174,7 @@ html {
 
 .matchingPageText {
 	text-align: left;
-	line-height: 40px;
+	line-height: 20px;
 	/*padding-top: 40px;*/
 	font-family: 'Lato', sans-serif;
 	padding-left: 15px;
@@ -198,7 +198,7 @@ html {
 }
 
 .matchingBoxLeft {
-	margin-top: 0px;
+	margin: 0 auto;
 }
 .matchingBoxRight {
 	/*max-width: 45%;*/
@@ -207,6 +207,7 @@ html {
 	max-height: 400px;
 	min-height: 300px;
 	/*margin-top: 30px;*/
+	/*margin: 0 auto;*/
 }
 
 .matchesBackground {
@@ -251,7 +252,9 @@ html {
 	margin-right: 10px;
 }
 
-
+.matchingRightCol {
+	margin: 0 auto;
+}
 
 /*MEDIA QUERIES/////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -278,15 +281,15 @@ html {
 
 @media only screen and (min-width: 600px){
 	.matchingRightCol {
-		margin-left: 15px;
+		/*margin-left: 15px;*/
 		margin-top: 50px;
 		width: 500px;
 		margin-right: 200px;
 		
 	}
 	.matchingBoxLeft {
-		margin-right: 15px;
-		max-width: 45%;
+		/*margin-right: 15px;*/
+		/*max-width: 45%;*/
 		margin-top: 50px;
 		margin-left: 200px;
 	}
@@ -334,6 +337,7 @@ html {
 @media only screen and (max-width: 410px){
 	.matchingRightCol {
 		margin-top: 20px;
+		/*margin-right: 50px;*/
 	}
 }
 
