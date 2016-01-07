@@ -11,7 +11,8 @@ var passport = require('passport'),
 
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var port = process.env.PORT || 3000;
+// var port = process.env.PORT || 3000;
+var port = 3000;
 var app = express();
 ////////////SOUNDCLOUD//////////////////////
 // app.use(passport.initialize());

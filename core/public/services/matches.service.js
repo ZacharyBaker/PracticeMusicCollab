@@ -15,7 +15,7 @@ function matchesService($q, $http) {
 				// return userInfo;
 				//use userInfo to get the right deck
 				//should be able to use userInfo.notInterested//
-				//userInfo.imInterested// userInfo.interestedInMe//
+				//userInfo.imInterested// userInfo.interes≠≠tedInMe//
 				//userInfo.collaborations
 				return $http.get('/api/users')
 					.then(function (response) {
